@@ -1,7 +1,7 @@
 ---
 layout: page
-title: One brick at a time explaining how neural networks learn with back-propagation
-tagline: Scratch Multi Layer Perceptron
+title: One brick at a time: explaining how neural networks learn with back-propagation
+tagline: Scratch MLP
 description: Minimal tutorial on making a simple website with GitHub Pages
 ---
 
