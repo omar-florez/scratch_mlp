@@ -2,15 +2,19 @@
 layout: page
 title: One Lego at a time &#58; Explaining how neural networks learn with back-propagation
 tagline: Scratch MLP
-description: Minimal tutorial on making a simple website with GitHub Pages
+description: Tutorial on back-propagation
 ---
+
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+
 
 [Github Pages](https://pages.github.com) provide a simple way to make a
 website using
 [Markdown](https://daringfireball.net/projects/markdown/) and
 [git](https://git-scm.com).
 
-For me, the painful aspects of making a website are
+FFor me, the painful aspects of making a website are
 
 - Working with html and css
 - Finding a hosting site
