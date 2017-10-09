@@ -1,6 +1,8 @@
 ---
-title: Welcome
-layout: post
+layout: page
+title: simple site
+tagline: Easy websites with GitHub Pages
+description: Minimal tutorial on making a simple website with GitHub Pages
 ---
 
 This site aims to be a comprehensive guide to Jekyll. We’ll cover topics such
