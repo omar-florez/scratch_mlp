@@ -55,15 +55,15 @@ When we initialize the network weights with random numbers, it looks as follows:
 This step encodes the input X forward through each layer until generating a vector in the output layer h2. This is how it happens:
 
 We calculate first the linear combination of input data X weighted by the first weights W1:
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png | width=100)
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){width="100px"}
 
 We scale this to get the output of the first layer h1:
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png | width=100)
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png){width="100px"}
 
 A similar process for the second layer h2 results in:
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z2.png | width=100)
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z2.png){width="100px"}
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png | width=100)
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png){width="100px"}
 
 ### Computing the Total Loss
 
@@ -72,7 +72,7 @@ Also know as "actual minus predicted", this value represents the distance betwee
 vector provided by humans in one-hot encoding format Y.
 ```
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/loss.png|width=150)
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/loss.png){width="100px"}
 
 ### Backward step:
 
