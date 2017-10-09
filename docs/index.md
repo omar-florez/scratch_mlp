@@ -21,8 +21,16 @@ So far this operation is only general linear system and doesn’t have the capac
 This changes when we stack one more layer (hence the rise of deep learning models). And we are finally ready for the
 Softmax block to transform the hidden layer values into a multinomial probability of k states, one for each class.
 
-## Concrete Example: Learning XOR function
+## Concrete example: Learning XOR function
 
+Let's open the blackbox. Our neural network is intended to learn the XOR function.
+The election of this non-linear function is by no means random chance. Without backpropagation it would be hard to learn
+to separate classes with a straight line, a major class of problems that we find in real life.
+
+The topology of the network is simple: two dimensions for each input X, a hidden layer h1 consists of three neurons,
+and the output layer h2 consists of 2 neurons since the XOR function returns either 0 or 1.
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/example.png "Logo Title Text 1")
 
 A neural network learns to remember reoccurring patterns by updating its weights towards a direction that minimizes a
 predefined error (a.k.a. loss function).
