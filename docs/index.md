@@ -53,3 +53,26 @@ If you come across anything along the way that we haven’t covered, or if you
 know of a tip you think others would find handy, please [file an
 issue]({{ site.repository }}/issues/new) and we’ll see about
 including it in this guide.
+
+
+- [Overview](pages/overview.html)
+- [Making an independent website](pages/independent_site.html)
+- [Making a personal site](pages/user_site.html)
+- [Making a site for a project](pages/project_site.html)
+- [Making a jekyll-free site](pages/nojekyll.html)
+- [Testing your site locally](pages/local_test.html)
+- [Resources](pages/resources.html)
+
+
+
+    _includes/
+    _layouts/
+    _plugins/
+    assets/
+    pages/
+    .gitignore
+    License.md
+    Rakefile
+    ReadMe.md
+    _config.yml
+    index.md
