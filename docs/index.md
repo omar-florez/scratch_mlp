@@ -5,7 +5,7 @@ tagline: Scratch MLP
 description: Tutorial on back-propagation
 ---
 
-![alt text](https://github.com/omar-florez/scratch_mlp/blob/master/docs/assets/overview.png "Logo Title Text 1")
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview.png "Logo Title Text 1")
 
 
 
