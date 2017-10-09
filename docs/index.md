@@ -9,19 +9,19 @@ A neural network is a clever arrangement of linear and non-linear modules. When 
 we have a powerful tool to approximate any mathematical function that learns to separate classes with a non-linear
 decision boundary. A topic that is not always explained in depth, despite of its intuitive and modular nature, is the
 back-propagation technique responsible for updating trainable parameters. Let’s see the internal functioning of a neural
-network using LEGO modules, one brick at a time.
+network using LEGO modules, one brick at a time:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview.png "Logo Title Text 1")
 
-- Input is raw data stored in a matrix in which observations are rows and dimensions are columns.
-- Things become more interesting when we map such input to a different space using weights as linear kernels.
-- To avoid that numbers go out of range, we scale the values to 0-1 using a Sigmoid function.
+- Input X is raw data stored in a matrix in which observations are rows and dimensions are columns
+- Things become more interesting when we map such input to a different space using network's weights W as a linear kernel
+- To avoid that numbers go out of range, we scale the values to 0-1 using a Sigmoid function
 
-So far this operation is only a dot product and doesn’t have the capacity to model non-linear interactions.
-This changes when we stack one more layer (weight and sigmoid Lego block). We are finally ready for the Softmax block.
-This one is composed of k neurons, one for each class, such that every example in the input is now associated to a
-multinomial distribution of k states in which the sum of their probabilities is equal to 1.
+So far this operation is only general linear system and doesn’t have the capacity to model non-linear interactions.
+This changes when we stack one more layer (hence the rise of deep learning models). And we are finally ready for the
+Softmax block to transform the hidden layer values into a multinomial probability of k states, one for each class.
 
+## Concrete Example: Learning XOR function
 
 
 A neural network learns to remember reoccurring patterns by updating its weights towards a direction that minimizes a
