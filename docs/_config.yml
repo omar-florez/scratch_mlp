@@ -8,12 +8,12 @@ highlighter: rouge
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : simple site
+title : Omar U. Florez
 author :
-  name : Karl Broman
-  email : kbroman@gmail.com
-  github : kbroman
-  twitter : kwbroman
+  name : Omar U. Florez
+  email : omar.florez@aggiemail.usu.edu
+  github : omar-florez
+  twitter : OmarUFlorez
   feedburner : nil
 
 # NOTE: If replacing this next line with your own URL, you likely want "https://" not "http://"
@@ -93,7 +93,7 @@ JB :
   # Set 'provider' to false to turn sharing off globally.
   #
   sharing :
-    provider : false
+    provider : true
 
   # Settings for all other include helpers can be defined by creating
   # a hash with key named for the given helper. ex:
