@@ -27,8 +27,10 @@ Let's open the blackbox. Our neural network is intended to learn the XOR functio
 The election of this non-linear function is by no means random chance. Without backpropagation it would be hard to learn
 to separate classes with a straight line, a major class of problems that we find in real life.
 
-The topology of the network is simple: two dimensions for each input X, a hidden layer h1 consists of three neurons,
-and the output layer h2 consists of 2 neurons since the XOR function returns either 0 or 1.
+The topology of the network is simple:
+- Two dimensional vector as input X
+- Hidden layer h1 consists of three neurons and
+- Output layer h2 consists of 2 neurons since the XOR function returns either 0 (h1=[0,1]) or 1 (h2=[1,0])
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/example.png "Logo Title Text 1")
 
