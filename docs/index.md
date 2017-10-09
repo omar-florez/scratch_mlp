@@ -17,22 +17,25 @@ network using LEGO modules, one brick at a time:
 - Things become more interesting when we map such input to a different space using network's weights W as a linear kernel
 - To avoid that numbers go out of range, we scale the values to 0-1 using a Sigmoid function
 
-So far this operation is only general linear system and doesn’t have the capacity to model non-linear interactions.
+So far this operation is only a general linear system and doesn’t have the capacity to model non-linear interactions.
 This changes when we stack one more layer (hence the rise of deep learning models). And we are finally ready for the
 Softmax block to transform the hidden layer values into a multinomial probability of k states, one for each class.
 
 ## Concrete example: Learning XOR function
 
-Let's open the blackbox. Our neural network is intended to learn the XOR function.
+Let's open the blackbox, our neural network is intended to learn the XOR function.
 The election of this non-linear function is by no means random chance. Without backpropagation it would be hard to learn
 to separate classes with a straight line, a major class of problems that we find in real life.
 
 The topology of the network is simple:
 - Two dimensional vector as input X
 - Hidden layer h1 consists of three neurons and
-- Output layer h2 consists of 2 neurons since the XOR function returns either 0 (h1=[0,1]) or 1 (h2=[1,0])
+- Output layer h2 consists of two neurons since the XOR function returns either 0 (h1=[0,1]) or 1 (h2=[1,0])
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/example.png "Logo Title Text 1")
+More visually:
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview2.png "Logo Title Text 1")
+
+
 
 A neural network learns to remember reoccurring patterns by updating its weights towards a direction that minimizes a
 predefined error (a.k.a. loss function).
