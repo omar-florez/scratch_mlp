@@ -1,6 +1,6 @@
 ---
 layout: page
-title: One LEGO at a time &#58; Explaining how neural networks learn with back-propagation
+title: One LEGO at a time&#58; Explaining the Math of how neural networks learn
 tagline: Scratch MLP
 description: Tutorial on back-propagation
 ---
@@ -25,12 +25,15 @@ Softmax block to transform the hidden layer values into a multinomial probabilit
 
 Let's open the blackbox, our neural network is intended to learn the XOR function.
 The election of this non-linear function is by no means random chance. Without backpropagation it would be hard to learn
-to separate classes with a straight line, a major class of problems that we find in real life.
+to separate classes with a straight line (see below image), a major class of problems that we find in real life.
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/nonlinear_xor.png "Logo Title Text 1")
+
 
 The topology of the network is simple:
 - Two dimensional vector as input X
 - Hidden layer h1 consists of three neurons and
-- Output layer h2 consists of two neurons since the XOR function returns either 0 (y1=[0, 1]) or 1 (y1 = [1, 0])
+- Output layer h2 consists of two neurons since the XOR function returns either 0 (y1=[0,1]) or 1 (y1 = [1,0])
 
 More visually:
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview2.png "Logo Title Text 1")
