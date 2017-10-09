@@ -42,7 +42,7 @@ research is exploring more type of parameters to be optimized. For example stabl
 
 The method to update the weights towards a direction (gradient) that minimizes a predefined error metric (a.k.a.
 loss function) given a batch of observations is named backpropagation. The backpropagation algorithm has been
-repeatedly rediscovered and is a special case of a more general technique called ![automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation) in
+repeatedly rediscovered and is a special case of a more general technique called [automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation) in
 reverse accumulation mode.
 
 
