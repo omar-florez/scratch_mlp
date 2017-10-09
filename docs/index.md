@@ -1,16 +1,34 @@
 ---
 layout: page
-title: One Lego at a time &#58; Explaining how neural networks learn with back-propagation
+title: One LEGO at a time &#58; Explaining how neural networks learn with back-propagation
 tagline: Scratch MLP
 description: Tutorial on back-propagation
 ---
 
+A neural network is a clever arrangement of linear and non-linear modules. When we choose and connect them wisely,
+we have a powerful tool to approximate any mathematical function that learns to separate classes with a non-linear
+decision boundary. A topic that is not always explained in depth, despite of its intuitive and modular nature, is the
+back-propagation technique responsible for enabling learning in this modular data structure.
+
+A neural network learns to remember reoccurring patterns by updating its weights towards a direction that minimizes a
+predefined error or loss function. Let’s see the internal functioning of a neural network using LEGO modules.
+
+
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview.png "Logo Title Text 1")
 
+Input is raw data stored in a matrix in which observations are rows and dimensions are columns. Things become more
+interesting when we map an input to a different space using weights as linear kernels. To avoid that numbers go out of
+range, we scale the values to 0-1 using a Sigmoid function. So far this operation is only a dot product and doesn’t have
+the capacity to model non-linear interactions. This changes when we stack one more layer (weight and sigmoid Lego block).
+We are finally ready for the Softmax block. This one is composed of k neurons, one for each class, such that every example
+in the input is now associated to a multinomial distribution of k states in which the sum of their probabilities is equal
+to 1.
 
 
-[Github Pages](https://pages.github.com) provide a simple way to make a
-website using
+
+
+
+[Github Pages](https://pages.github.com) provide a simple way to make a website using
 [Markdown](https://daringfireball.net/projects/markdown/) and
 [git](https://git-scm.com).
 
