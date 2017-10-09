@@ -21,27 +21,40 @@ So far this operation is only a general linear system and doesn’t have the cap
 This changes when we stack one more layer (hence the rise of deep learning models). And we are finally ready for the
 Softmax block to transform the hidden layer values into a multinomial probability of k states, one for each class.
 
-## Concrete example: Learning XOR function
+## Concrete example: Learning the XOR function
 
 Let's open the blackbox, our neural network is intended to learn the XOR function.
 The election of this non-linear function is by no means random chance. Without backpropagation it would be hard to learn
-to separate classes with a straight line (see below image), a major class of problems that we find in real life.
+to separate classes with a straight line (see below image). This is a major type of problems that we find in real life.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/nonlinear_xor.png "Logo Title Text 1")
 
-
 The topology of the network is simple:
-- Two dimensional vector as input X
+- Input X is a two dimensional vector
 - Hidden layer h1 consists of three neurons and
 - Output layer h2 consists of two neurons since the XOR function returns either 0 (y1=[0,1]) or 1 (y1 = [1,0])
 
 More visually:
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview2.png "Logo Title Text 1")
 
+Let's now find values for the network's trainable parameters. In our simple example these are weights, but be aware that current
+research is exploring more type of parameters to be optimized. For example stable distributions, residual, learning rates, etc.
+
+The method to update the weights towards a direction (gradient) that minimizes a predefined error metric (a.k.a.
+loss function) given a batch of observations is named backpropagation. The backpropagation algorithm has been
+repeatedly rediscovered and is a special case of a more general technique called ![automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation) in
+reverse accumulation mode.
 
 
-A neural network learns to remember reoccurring patterns by updating its weights towards a direction that minimizes a
-predefined error (a.k.a. loss function).
+
+## Concrete example: Learning XOR function
+
+When we initialize the network weights with numbers, it looks as follows:
+
+
+
+
+A neural network learns to remember reoccurring patterns by
 
 
 

@@ -92,7 +92,7 @@ def run():
         #weight updates:
         w2 += -learning_rate*dL_dw2
         w1 += -learning_rate*dL_dw1
-
+        ipdb.set_trace()
         if (i+1)%1000==0:
             y_pred = inference(X, [w1, w2])
             y_actual = np.argmax(y, axis=1)
