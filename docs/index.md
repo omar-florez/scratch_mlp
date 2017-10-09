@@ -1,6 +1,6 @@
 ---
 layout: page
-title: One brick at a time &#58; explaining how neural networks learn with back-propagation
+title: One Lego at a time &#58; Explaining how neural networks learn with back-propagation
 tagline: Scratch MLP
 description: Minimal tutorial on making a simple website with GitHub Pages
 ---
