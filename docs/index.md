@@ -30,7 +30,7 @@ to separate classes with a straight line, a major class of problems that we find
 The topology of the network is simple:
 - Two dimensional vector as input X
 - Hidden layer h1 consists of three neurons and
-- Output layer h2 consists of two neurons since the XOR function returns either 0 (h1=[0,1]) or 1 (h2=[1,0])
+- Output layer h2 consists of two neurons since the XOR function returns either 0 (y1=[0, 1]) or 1 (y1 = [1, 0])
 
 More visually:
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview2.png "Logo Title Text 1")
