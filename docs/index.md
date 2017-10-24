@@ -15,14 +15,15 @@ The below figure depicts some of the Math used to train a neural network. We wil
 The reader may find interesting that a neural network is a stack of modules with different purposes:
 
 - Input X feeds a neural network with raw data that is stored in a matrix in which observations are rows and dimensions are columns
-- The weights of the neural network W1 map input X to the first hidden layer. Weights W1 work then as a linear kernel
-- To control numbers go out of range, we scale values to 0-1 using a Sigmoid activation function
+- Weights W1 map input X to the first hidden layer. Weights W1 work then as a linear kernel
+- To avoid numbers go out of range, we scale values to 0-1 using a Sigmoid activation function, obtaining the activations of the first hidden layer h1
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview.png "Logo Title Text 1")
 
 At this point these operations only compute a general linear system and doesn’t have the capacity to model non-linear interactions.
-This changes when we stack one more layer adding more depth to the modular structure (hence the name of deep learning models).
-Finally, a Softmax module transform the resulting hidden layer values into a multinomial probability of k states, one for each class.
+This changes when we stack one more layer adding depth to this modular structure. The deeper the network, the more subtle non-linear interactions
+can be learned; hence the rise of deep neural models. Finally, a Softmax module convert the activations of a layer values into a
+multinomial probability of k states, one for each class.
 
 ## Concrete Example: Learning the XOR Function
 
