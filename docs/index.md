@@ -8,15 +8,15 @@ description: Tutorial on back-propagation
 A neural network is a clever arrangement of linear and non-linear modules. When we choose and connect them wisely,
 we have a powerful tool to approximate any mathematical function that learns to separate classes with a non-linear
 decision boundary. A topic that is not always explained in depth, despite of its intuitive and modular nature, is the
-back-propagation technique responsible for updating trainable parameters. Let’s see the internal functioning of a neural
-network using LEGO modules, one brick at a time:
+back-propagation technique responsible for updating trainable parameters. Let’s explore this to see the internal functioning of a neural
+network using LEGO pieces as a modular analogy, one brick at a time:
 
 The below figure depicts some of the Math used to train a neural network. We will make sense of this during this article.
 The reader may find interesting how modular a neural network is:
 
-- Input X feeds the topology with raw data that is stored in a matrix in which observations are rows and dimensions are columns
-- The weights of the neural network W1 map input X to the first hidden layer named as h1. Weights W1 form then a linear kernel
-- To control numbers go out of range, we scale the values in h1 to 0-1 using a Sigmoid function
+- Input X feeds a neural network with raw data that is stored in a matrix in which observations are rows and dimensions are columns
+- The weights of the neural network W1 map input X to the first hidden layer. Weights W1 work then as a linear kernel
+- To control numbers go out of range, we scale values to 0-1 using a Sigmoid activation function
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview.png "Logo Title Text 1")
 
@@ -28,7 +28,8 @@ Finally, a Softmax module transform the resulting hidden layer values into a mul
 
 Let's open the blackbox, we will build now a neural network from scratch that learns the XOR function.
 The election of this non-linear function is by no means random chance. Without backpropagation it would be hard to learn
-to separate classes with a straight line (see below image). This is an important type of problems that we find in real life.
+to separate classes with a straight line.  To illustrate this, note how a sinle straight line cannot separate Os and 1s in this function.
+ This is an important type of problems that we find in real life.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/nonlinear_xor.png "Logo Title Text 1")
 
