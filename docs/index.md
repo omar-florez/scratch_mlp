@@ -1,7 +1,7 @@
 ---
 layout: page
 title: One LEGO at a time&#58; Explaining the Math of how neural networks learn
-tagline: (Scratch MLP)
+tagline:
 description: Tutorial on back-propagation
 ---
 
@@ -11,10 +11,11 @@ decision boundary. A topic that is not always explained in depth, despite of its
 back-propagation technique responsible for updating trainable parameters. Let’s see the internal functioning of a neural
 network using LEGO modules, one brick at a time:
 
-We will explain in detail the below figure along this article. In the meantime, the reader may find interesting how modular a neural network is:
+The below figure depicts some of the Math used to train a neural network. We will make sense of this during this article.
+The reader may find interesting how modular a neural network is:
 
 - Input X feeds the topology with raw data that is stored in a matrix in which observations are rows and dimensions are columns
-- The neural network weights W1 map input X to a different space h1. Weights W1 form then a linear kernel
+- The weights of the neural network W1 map input X to the first hidden layer named as h1. Weights W1 form then a linear kernel
 - To control numbers go out of range, we scale the values in h1 to 0-1 using a Sigmoid function
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview.png "Logo Title Text 1")
