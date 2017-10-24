@@ -14,9 +14,9 @@ network using LEGO pieces as a modular analogy, one brick at a time:
 The below figure depicts some of the Math used to train a neural network. We will make sense of this during this article.
 The reader may find interesting that a neural network is a stack of modules with different purposes:
 
-- Input X feeds a neural network with raw data that is stored in a matrix in which observations are rows and dimensions are columns
+- Input X feeds a neural network with raw data, which is stored in a matrix in which observations are rows and dimensions are columns
 - Weights W1 map input X to the first hidden layer. Weights W1 work then as a linear kernel
-- To avoid numbers go out of range, we scale values to 0-1 using a Sigmoid activation function, obtaining the activations of the first hidden layer h1
+- To avoid numbers go out of range, we scale values to 0-1 using a Sigmoid function, obtaining the activations of the first hidden layer h1
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview.png "Logo Title Text 1")
 
@@ -27,28 +27,29 @@ multinomial probability of k states, one for each class.
 
 ## Concrete Example: Learning the XOR Function
 
-Let's open the blackbox, we will build now a neural network from scratch that learns the XOR function.
-The election of this non-linear function is by no means random chance. Without backpropagation it would be hard to learn
-to separate classes with a straight line.  To illustrate this, note how a sinle straight line cannot separate Os and 1s in this function.
- This is an important type of problems that we find in real life.
+Let's open the blackbox. We will build now a neural network from scratch that learns the XOR function.
+The choice of this non-linear function is by no means random chance. Without backpropagation it would be hard to learn
+to separate classes with a straight line.  To illustrate this, note below how a straight line cannot separate 0s and 1s for the outputs of the XOR function.
+ Real life problems are also non-linearly separable.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/nonlinear_xor.png "Logo Title Text 1")
 
 The topology of the network is simple:
 - Input X is a two dimensional vector
+- Weights W1 is a 2x3 matrix with randonmly initialized values
 - Hidden layer h1 consists of three neurons and
+- Weights W2 is a 3x2 matrix with randonmly initialized values
 - Output layer h2 consists of two neurons since the XOR function returns either 0 (y1=[0,1]) or 1 (y1 = [1,0])
 
 More visually:
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview2.png "Logo Title Text 1")
 
-Let's now find values for the network's trainable parameters. In our simple example these are weights, but be aware that current
-research is exploring more type of parameters to be optimized. For example stable distributions, residual, learning rates, etc.
+Let's now train the model. In our simple example the trainable parameters are weights, but be aware that current
+research is exploring more types of parameters to be optimized. For example regularized distributions, topologies, residual, learning rates, etc.
 
-The method to update the weights towards a direction (gradient) that minimizes a predefined error metric (a.k.a.
-loss function) given a batch of observations is named backpropagation. The backpropagation algorithm has been
-repeatedly rediscovered and is a special case of a more general technique called [automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation) in
-reverse accumulation mode.
+Backpropagation is a method to update the weights towards the direction (gradient) that minimizes a predefined error metric known as Loss function
+given a batch of labeled observations. This algorithm has been repeatedly rediscovered and is a special case of a more general technique called
+[automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation) in reverse accumulation mode.
 
 ### Network Initialization
 
