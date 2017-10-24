@@ -13,21 +13,21 @@ network using LEGO modules, one brick at a time:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview.png "Logo Title Text 1")
 
-- Input X is raw data stored in a matrix in which observations are rows and dimensions are columns
-- Things become more interesting when we map such input to a different space using network's weights W as a linear kernel
+- Input X is raw data that is stored in a matrix in which observations are rows and dimensions are columns
+- We can map this input to a different space h1 using network weights W as a linear kernel
 - To avoid that numbers go out of range, we scale the values to 0-1 using a Sigmoid function
 
 So far this operation is only a general linear system and doesn’t have the capacity to model non-linear interactions.
-This changes when we stack one more layer (hence the rise of deep learning models). And we are finally ready for the
+This changes when we stack one more layer adding depth to the topology (hence the name of deep learning models). And we are finally ready for the
 Softmax block to transform the hidden layer values into a multinomial probability of k states, one for each class.
 
 ## Concrete Example: Learning the XOR Function
 
-Let's open the blackbox, our neural network is intended to learn the XOR function.
+Let's open the blackbox, we will build now a neural network from scratch that learns the XOR function.
 The election of this non-linear function is by no means random chance. Without backpropagation it would be hard to learn
-to separate classes with a straight line (see below image). This is a major type of problems that we find in real life.
+to separate classes with a straight line (see below image). This is an important type of problems that we find in real life.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/nonlinear_xor.png "Logo Title Text 1")
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/nonlinear_xor.png "")
 
 The topology of the network is simple:
 - Input X is a two dimensional vector
