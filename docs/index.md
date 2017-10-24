@@ -12,7 +12,7 @@ back-propagation technique responsible for updating trainable parameters. Let’
 network using LEGO pieces as a modular analogy, one brick at a time:
 
 The below figure depicts some of the Math used to train a neural network. We will make sense of this during this article.
-The reader may find interesting how modular a neural network is:
+The reader may find interesting that a neural network is a stack of modules with different purposes:
 
 - Input X feeds a neural network with raw data that is stored in a matrix in which observations are rows and dimensions are columns
 - The weights of the neural network W1 map input X to the first hidden layer. Weights W1 work then as a linear kernel
