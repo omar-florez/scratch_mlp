@@ -11,15 +11,17 @@ decision boundary. A topic that is not always explained in depth, despite of its
 back-propagation technique responsible for updating trainable parameters. Let’s see the internal functioning of a neural
 network using LEGO modules, one brick at a time:
 
+We will explain in detail the below figure along this article. In the meantime, the reader may find interesting how modular a neural network is:
+
+- Input X feeds the topology with raw data that is stored in a matrix in which observations are rows and dimensions are columns
+- The neural network weights W1 map input X to a different space h1. Weights W1 form then a linear kernel
+- To control numbers go out of range, we scale the values in h1 to 0-1 using a Sigmoid function
+
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview.png "Logo Title Text 1")
 
-- Input X is raw data that is stored in a matrix in which observations are rows and dimensions are columns
-- We can map this input to a different space h1 using network weights W as a linear kernel
-- To avoid that numbers go out of range, we scale the values to 0-1 using a Sigmoid function
-
-So far this operation is only a general linear system and doesn’t have the capacity to model non-linear interactions.
-This changes when we stack one more layer adding depth to the topology (hence the name of deep learning models). And we are finally ready for the
-Softmax block to transform the hidden layer values into a multinomial probability of k states, one for each class.
+At this point these operations only compute a general linear system and doesn’t have the capacity to model non-linear interactions.
+This changes when we stack one more layer adding more depth to the modular structure (hence the name of deep learning models).
+Finally, a Softmax module transform the resulting hidden layer values into a multinomial probability of k states, one for each class.
 
 ## Concrete Example: Learning the XOR Function
 
@@ -27,7 +29,7 @@ Let's open the blackbox, we will build now a neural network from scratch that le
 The election of this non-linear function is by no means random chance. Without backpropagation it would be hard to learn
 to separate classes with a straight line (see below image). This is an important type of problems that we find in real life.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/nonlinear_xor.png "")
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/nonlinear_xor.png "Logo Title Text 1")
 
 The topology of the network is simple:
 - Input X is a two dimensional vector
