@@ -96,10 +96,10 @@ first hidden layer.
 >Also known as "actual minus predicted", the goal of the loss function is to quantify the distance between the predicted
  vector h2 and the actual label provided by humans y.
 
-Note that the loss function contains a regularization component that penalizes large weight values as in a Ridge
-regression. In other words, large weigh values will increase the loss function, an error metric we indeed want to minimize.
+Note that the loss function Loss contains a regularization component that penalizes large weight values as in a Ridge
+regression. In other words, large squared weight values will increase the loss function, an error metric we indeed want to minimize.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/loss.png){:width="300px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/loss.png){:width="500px"}
 
 ### Backward step:
 
