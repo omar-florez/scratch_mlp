@@ -125,7 +125,8 @@ Replacing those functions with their partial derivatives give us:
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_detailed.png){:width="500px"}
 
 And now plugin in the matrices:
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers.png){:width="500px"}
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers.png){:width="600px"}
 
 #### dLoss/dW2:
 
