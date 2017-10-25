@@ -6,17 +6,17 @@ description: Tutorial on back-propagation
 ---
 
 A neural network is a clever arrangement of linear and non-linear modules. When we choose and connect them wisely,
-we have a powerful tool to approximate any mathematical function that learns to separate classes with a non-linear
+we have a powerful tool to approximate any mathematical function. For example one that separates classes with a non-linear
 decision boundary. A topic that is not always explained in depth, despite of its intuitive and modular nature, is the
 back-propagation technique responsible for updating trainable parameters. Let’s explore this to see the internal functioning of a neural
-network using LEGO pieces as a modular analogy, one brick at a time:
+network using LEGO pieces as a modular analogy, one brick at a time.
 
-The below figure depicts some of the Math used to train a neural network. We will make sense of this during this article.
+The below figure depicts some of the Math used for training a neural network. We will make sense of this during this article.
 The reader may find interesting that a neural network is a stack of modules with different purposes:
 
 - Input X feeds a neural network with raw data, which is stored in a matrix in which observations are rows and dimensions are columns
-- Weights W1 map input X to the first hidden layer. Weights W1 work then as a linear kernel
-- To avoid numbers go out of range, we scale values to 0-1 using a Sigmoid function, obtaining the activations of the first hidden layer h1
+- Weights W1 map input X to the first hidden layer. Weights W1 is then a linear kernel
+- A Sigmoid function prevents numbers from falling out of range by scaling them to 0-1. This results in the first hidden layer h1
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview.png "Logo Title Text 1")
 
