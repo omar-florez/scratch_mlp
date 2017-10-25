@@ -8,8 +8,8 @@ description: Tutorial on back-propagation
 A neural network is a clever arrangement of linear and non-linear modules. When we choose and connect them wisely,
 we have a powerful tool to approximate any mathematical function. For example one that separates classes with a non-linear
 decision boundary. A topic that is not always explained in depth, despite of its intuitive and modular nature, is the
-back-propagation technique responsible for updating trainable parameters. Let’s explore this to see the internal functioning of a neural
-network using LEGO pieces as a modular analogy, one brick at a time.
+back-propagation technique responsible for updating trainable parameters. Let’s explore this algorithm to see the internal
+functioning of a neural network using LEGO pieces as a modular analogy, one brick at a time.
 
 The below figure depicts some of the Math used for training a neural network. We will make sense of this during this article.
 The reader may find interesting that a neural network is a stack of modules with different purposes:
@@ -22,7 +22,7 @@ The reader may find interesting that a neural network is a stack of modules with
 
 At this point these operations only compute a general linear system and doesn’t have the capacity to model non-linear interactions.
 This changes when we stack one more layer adding depth to this modular structure. The deeper the network, the more subtle non-linear interactions
-can be learned; hence the rise of deep neural models. Finally, a Softmax module convert the activations of a layer values into a
+can be learned; hence the rise of deep neural models. Finally, a Softmax module converts the activations of a layer values into a
 multinomial probability of k states, one for each class.
 
 ## Concrete Example: Learning the XOR Function
@@ -32,7 +32,9 @@ The choice of this non-linear function is by no means random chance. Without bac
 to separate classes with a straight line.  To illustrate this, note below how a straight line cannot separate 0s and 1s for the outputs of the XOR function.
  Real life problems are also non-linearly separable.
 
+
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/nonlinear_xor.png "Logo Title Text 1")
+
 
 The topology of the network is simple:
 - Input X is a two dimensional vector
