@@ -64,8 +64,8 @@ Let's initialize the network weights with random numbers:
 This goal of this step is to forward propagate the input X to each layer of the network until computing a vector in
 the output layer h2. This is how it happens:
 
-- Linearly map input data X using weights W1 as a kernel:
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="900px"}
+- Linearly map input data X using weights W1 as a kernel:<br>
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="700px"}
 
 - We scale this to get the output of the first layer h1:
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png){:width="300px"}
