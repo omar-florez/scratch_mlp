@@ -56,17 +56,18 @@ given a batch of labeled observations. This algorithm has been repeatedly redisc
 
 ### Network Initialization
 
-When we initialize the network weights with random numbers, it looks as follows:
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/initialized_network.png "Logo Title Text 1"){:width="1000px"}
+Let's initialize the network weights with random numbers:
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/initialized_network.png "Logo Title Text 1"){:width="1300px"}
 
 ### Forward Step:
 
-This step encodes the input X forward through each layer until generating a vector in the output layer h2. This is how it happens:
+This goal of this step is to forward propagate the input X to each layer of the network until computing a vector in
+the output layer h2. This is how it happens:
 
-We calculate first the linear combination of input data X weighted by the first weights W1:
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="300px"}
+- Linearly map input data X using weights W1 as a kernel:
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="900px"}
 
-We scale this to get the output of the first layer h1:
+- We scale this to get the output of the first layer h1:
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png){:width="300px"}
 
 A similar process for the second layer h2 results in:
