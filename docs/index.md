@@ -74,21 +74,23 @@ This is how it happens:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="500px"}
 
-- Scale this weighted sum with a Sigmoid function to get values of the first hidden layer h1:
+- Scale this weighted sum Z1 with a Sigmoid function to get values of the first hidden layer h1:
 
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png){:width="500px"}
 
-- A similar process for the second layer h2 results in:
+- A similar process for the second layer h2. First computed the weighted sum of the values in the first hidden layer:
 
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z2.png){:width="500px"}
 
+- And then compute its Sigmoid activation function. This vector [0.37166596 0.45414264] represents the log probability
+(logit) or predicted vector provided by the network given input X. 
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png){:width="300px"}
 
 ### Computing the Total Loss
-
+fdsfsdfsfsd
 ```
 Also know as "actual minus predicted", this value represents the distance between the computed vector h2 and the actual
 vector provided by humans in one-hot encoding format Y.
