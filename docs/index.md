@@ -40,8 +40,8 @@ separate 0s and 1s, the outputs of the XOR function. Real life problems are also
 The topology of the network is simple:
 - Input X is a two dimensional vector
 - Weights W1 is a 2x3 matrix with randonmly initialized values
-- Hidden layer h1 consists of three neurons. Each neuron is then a weighted sum of observations, this inner product
-is highlighted in green: [x1, x2][w1, w2]
+- Hidden layer h1 consists of three neurons. Each neuron receives as input a weighted sum of observations, this inner product
+is highlighted in green: z1 = [x1, x2][w1, w2]
 - Weights W2 is a 3x2 matrix with randonmly initialized values and
 - Output layer h2 consists of two neurons since the XOR function returns either 0 (y1=[0,1]) or 1 (y2 = [1,0])
 
@@ -142,3 +142,7 @@ We can reuse existing computations:
 Placing all values together:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1_numbers_final.png){:width="700px"}
+
+ {% raw %}
+  $$a^2 + b^2 = c^2$$ --> note that all equations between these tags will not need escaping!
+ {% endraw %}
