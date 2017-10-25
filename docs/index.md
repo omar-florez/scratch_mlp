@@ -43,7 +43,9 @@ The topology of the network is simple:
 - Weights W2 is a 3x2 matrix with randonmly initialized values and
 - Output layer h2 consists of two neurons since the XOR function returns either 0 (y1=[0,1]) or 1 (y2 = [1,0])
 
+
 More visually:
+
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview2.png "Logo Title Text 1")
 
 Let's now train the model. In our simple example the trainable parameters are weights, but be aware that current
@@ -56,17 +58,18 @@ given a batch of labeled observations. This algorithm has been repeatedly redisc
 
 ### Network Initialization
 
-Let's initialize the network weights with random numbers:
+>Let's initialize the network weights with random numbers:
+
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/initialized_network.png "Logo Title Text 1"){:width="1300px"}
 
 ### Forward Step:
 
-This goal of this step is to forward propagate the input X to each layer of the network until computing a vector in
+>This goal of this step is to forward propagate the input X to each layer of the network until computing a vector in
 the output layer h2. This is how it happens:
 
 - Linearly map input data X using weights W1 as a kernel:
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="700px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="600px"}
 
 - Scale this to get the output of the first layer h1:
 
