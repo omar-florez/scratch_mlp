@@ -119,11 +119,12 @@ By applying the chain rule, we know that
 More visually, our goal is to update the weights in blue in the below figure (W2). In order to that,
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2.png){:width="500px"}
-
-
-
-
-
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers_final.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_detailed.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1_numbers.png){:width="500px"}
+ 
 
 
 [Github Pages](https://pages.github.com) provide a simple way to make a website using
