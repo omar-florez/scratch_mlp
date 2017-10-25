@@ -57,7 +57,7 @@ given a batch of labeled observations. This algorithm has been repeatedly redisc
 ### Network Initialization
 
 When we initialize the network weights with random numbers, it looks as follows:
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/initialized_network.png "Logo Title Text 1"){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/initialized_network.png "Logo Title Text 1"){:width="1000px"}
 
 ### Forward Step:
 
