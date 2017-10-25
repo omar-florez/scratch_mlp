@@ -29,8 +29,8 @@ multinomial probability of k states, one for each class.
 
 Let's open the blackbox. We will build now a neural network from scratch that learns the XOR function.
 The choice of this non-linear function is by no means random chance. Without backpropagation it would be hard to learn
-to separate classes with a straight line.  To illustrate this, note below how a straight line cannot separate 0s and 1s for the outputs of the XOR function.
- Real life problems are also non-linearly separable.
+to separate classes with a straight line.  To illustrate this important concept, note below how a straight line cannot
+separate 0s and 1s, the outputs of the XOR function. Real life problems are also non-linearly separable.
 
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/nonlinear_xor.png "Logo Title Text 1")
@@ -39,15 +39,16 @@ to separate classes with a straight line.  To illustrate this, note below how a 
 The topology of the network is simple:
 - Input X is a two dimensional vector
 - Weights W1 is a 2x3 matrix with randonmly initialized values
-- Hidden layer h1 consists of three neurons and
-- Weights W2 is a 3x2 matrix with randonmly initialized values
-- Output layer h2 consists of two neurons since the XOR function returns either 0 (y1=[0,1]) or 1 (y1 = [1,0])
+- Hidden layer h1 consists of three neurons
+- Weights W2 is a 3x2 matrix with randonmly initialized values and
+- Output layer h2 consists of two neurons since the XOR function returns either 0 (y1=[0,1]) or 1 (y2 = [1,0])
 
 More visually:
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview2.png "Logo Title Text 1")
 
 Let's now train the model. In our simple example the trainable parameters are weights, but be aware that current
-research is exploring more types of parameters to be optimized. For example regularized distributions, topologies, residual, learning rates, etc.
+research is exploring more types of parameters to be optimized. For example regularized distributions, topologies,
+residual, learning rates, etc.
 
 Backpropagation is a method to update the weights towards the direction (gradient) that minimizes a predefined error metric known as Loss function
 given a batch of labeled observations. This algorithm has been repeatedly rediscovered and is a special case of a more general technique called
@@ -56,7 +57,7 @@ given a batch of labeled observations. This algorithm has been repeatedly redisc
 ### Network Initialization
 
 When we initialize the network weights with random numbers, it looks as follows:
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/initialized_network.png "Logo Title Text 1")
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/initialized_network.png "Logo Title Text 1"){:width="500px"}
 
 ### Forward Step:
 
