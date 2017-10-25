@@ -5,7 +5,7 @@ tagline:
 description: Tutorial on back-propagation
 ---
 
-A neural network is a clever arrangement of linear and non-linear modules. When we choose and connect them wisely,
+>A neural network is a clever arrangement of linear and non-linear modules. When we choose and connect them wisely,
 we have a powerful tool to approximate any mathematical function. For example one that separates classes with a non-linear
 decision boundary. A topic that is not always explained in depth, despite of its intuitive and modular nature, is the
 back-propagation technique responsible for updating trainable parameters. Let’s explore this algorithm to see the internal
@@ -64,10 +64,13 @@ Let's initialize the network weights with random numbers:
 This goal of this step is to forward propagate the input X to each layer of the network until computing a vector in
 the output layer h2. This is how it happens:
 
-- Linearly map input data X using weights W1 as a kernel:<br>
+- Linearly map input data X using weights W1 as a kernel:
+
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="700px"}
 
 - Scale this to get the output of the first layer h1:
+
+
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png){:width="300px"}
 
 A similar process for the second layer h2 results in:
