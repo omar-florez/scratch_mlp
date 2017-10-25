@@ -89,7 +89,7 @@ first hidden layer.
 - And then compute their Sigmoid activation function. This vector [0.37166596 0.45414264] represents the log probability
 (logit) or predicted vector provided by the network given input X.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png){:width="200px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png){:width="300px"}
 
 ### Computing the Total Loss
 
@@ -103,28 +103,41 @@ regression. In other words, large squared weight values will increase the loss f
 
 ### Backward step:
 >The goal of this step is to update the weights of the neural network in a direction that minimizes its Loss function.
-As we will see, this is a recursive algorithm, which can reuse previous computations of gradient and heavily relies on
-differentiable functions/ Since these updates reduce the loss function, a network is ‘learning’ to react this way when
-seeing similar new patterns. A property called generalization.
+As we will see, this is a recursive algorithm, which can reuse gradients previously computed and heavily relies on
+differentiable functions. Since these updates reduce the loss function, a network is ‘learning’ to approximate the label
+of observations with known classes. A property called generalization.
 
 This step goes in reverse order than the forward step. It computes the partial derivative of the loss function
 with respect to the weights connecting to the output layer (dLoss/dW2) and then the hidden layer (dLoss/dW1).
 
 #### dLoss/dW2:
 
-By applying the chain rule, we know that
+The chain rule says that we can decompose the modular structure of a neural network into diferentiable pieces:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2.png){:width="500px"}
 
-More visually, our goal is to update the weights in blue in the below figure (W2). In order to that,
+More visually, we aim to update the weights in blue in the below figure (W2). In order to that, we need to compute the
+three partial derivatives along the chain.
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/update_w2.png){:width="500px"}
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2.png){:width="500px"}
+Replacing those functions with their partial derivatives give us:
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers.png){:width="500px"}
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers_final.png){:width="500px"}
+
+And now plugin in the matrices:
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_detailed.png){:width="500px"}
+
+#### dLoss/dW2:
+
+The chain rule for updaring the weights of the first weights:
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1.png){:width="500px"}
+
+We can reuse existing computations:
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1_numbers.png){:width="500px"}
- 
+
+Placing all values together:
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1_numbers_final.png){:width="500px"}
+
+
 
 
 [Github Pages](https://pages.github.com) provide a simple way to make a website using
