@@ -89,7 +89,7 @@ first hidden layer.
 - And then compute their Sigmoid activation function. This vector [0.37166596 0.45414264] represents the log probability
 (logit) or predicted vector provided by the network given input X.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png){:width="300px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png){:width="200px"}
 
 ### Computing the Total Loss
 
@@ -102,6 +102,26 @@ regression. In other words, large squared weight values will increase the loss f
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/loss.png){:width="500px"}
 
 ### Backward step:
+>The goal of this step is to update the weights of the neural network in a direction that minimizes its Loss function.
+As we will see, this is a recursive algorithm, which can reuse previous computations of gradient and heavily relies on
+differentiable functions/ Since these updates reduce the loss function, a network is ‘learning’ to react this way when
+seeing similar new patterns. A property called generalization.
+
+This step goes in reverse order than the forward step. It computes the partial derivative of the loss function
+with respect to the weights connecting to the output layer (dLoss/dW2) and then the hidden layer (dLoss/dW1).
+
+#### dLoss/dW2:
+
+By applying the chain rule, we know that
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2.png){:width="500px"}
+
+More visually, our goal is to update the weights in blue in the below figure (W2). In order to that,
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2.png){:width="500px"}
+
+
+
 
 
 
