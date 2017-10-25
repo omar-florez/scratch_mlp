@@ -27,11 +27,12 @@ multinomial probability of k states, one for each class.
 
 ## Concrete Example: Learning the XOR Function
 
-Let's open the blackbox. We will build now a neural network from scratch that learns the XOR function.
+>Let's open the blackbox. We will build now a neural network from scratch that learns the XOR function.
 The choice of this non-linear function is by no means random chance. Without backpropagation it would be hard to learn
-to separate classes with a straight line.  To illustrate this important concept, note below how a straight line cannot
-separate 0s and 1s, the outputs of the XOR function. Real life problems are also non-linearly separable.
+to separate classes with a straight line.
 
+To illustrate this important concept, note below how a straight line cannot
+separate 0s and 1s, the outputs of the XOR function. Real life problems are also non-linearly separable.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/nonlinear_xor.png "Logo Title Text 1")
 
@@ -65,21 +66,26 @@ given a batch of labeled observations. This algorithm has been repeatedly redisc
 ### Forward Step:
 
 >This goal of this step is to forward propagate the input X to each layer of the network until computing a vector in
-the output layer h2. This is how it happens:
+the output layer h2.
 
+This is how it happens:
 - Linearly map input data X using weights W1 as a kernel:
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="600px"}
 
-- Scale this to get the output of the first layer h1:
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="500px"}
+
+- Scale this weighted sum with a Sigmoid function to get values of the first hidden layer h1:
 
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png){:width="300px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png){:width="500px"}
 
-A similar process for the second layer h2 results in:
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z2.png){:width="300px"}
+- A similar process for the second layer h2 results in:
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png){:width="300px"}
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z2.png){:width="500px"}
+
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png){:width="500px"}
 
 ### Computing the Total Loss
 
