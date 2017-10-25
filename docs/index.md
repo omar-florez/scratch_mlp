@@ -74,27 +74,30 @@ This is how it happens:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="500px"}
 
-- Scale this weighted sum Z1 with a Sigmoid function to get values of the first hidden layer h1:
+- Scale this weighted sum Z1 with a Sigmoid function to get values of the first hidden layer h1. Note that the original
+2D vector has been mapped to a 3D space after this.
 
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png){:width="400px"}
 
-- A similar process for the second layer h2. First computed the weighted sum of the values in the first hidden layer:
+- A similar process takes place for the second layer h2. Let's compute first the weighted sum z2 of the values in the
+first hidden layer.
 
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z2.png){:width="500px"}
 
-- And then compute its Sigmoid activation function. This vector [0.37166596 0.45414264] represents the log probability
-(logit) or predicted vector provided by the network given input X. 
+- And then compute their Sigmoid activation function. This vector [0.37166596 0.45414264] represents the log probability
+(logit) or predicted vector provided by the network given input X.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png){:width="300px"}
 
 ### Computing the Total Loss
-fdsfsdfsfsd
-```
-Also know as "actual minus predicted", this value represents the distance between the computed vector h2 and the actual
-vector provided by humans in one-hot encoding format Y.
-```
+
+>Also known as "actual minus predicted", the goal of the loss function is to quantify the distance between the predicted
+ vector h2 and the actual label provided by humans y.
+
+Note that the loss function contains a regularization component that penalizes large weight values as in a Ridge
+regression. In other words, large weigh values will increase the loss function, an error metric we indeed want to minimize.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/loss.png){:width="300px"}
 
