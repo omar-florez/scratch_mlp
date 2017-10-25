@@ -6,7 +6,7 @@ description: Tutorial on back-propagation
 ---
 
 >A neural network is a clever arrangement of linear and non-linear modules. When we choose and connect them wisely,
-we have a powerful tool to approximate any mathematical function. For example one that separates classes with a non-linear
+we have a powerful tool to approximate any mathematical function. For example one that separates classes as a non-linear
 decision boundary. A topic that is not always explained in depth, despite of its intuitive and modular nature, is the
 back-propagation technique responsible for updating trainable parameters. Let’s explore this algorithm to see the internal
 functioning of a neural network using LEGO pieces as a modular analogy, one brick at a time.
@@ -40,7 +40,8 @@ separate 0s and 1s, the outputs of the XOR function. Real life problems are also
 The topology of the network is simple:
 - Input X is a two dimensional vector
 - Weights W1 is a 2x3 matrix with randonmly initialized values
-- Hidden layer h1 consists of three neurons
+- Hidden layer h1 consists of three neurons. Each neuron is then a weighted sum of observations, this inner product
+is highlighted in green: [x1, x2][w1, w2]
 - Weights W2 is a 3x2 matrix with randonmly initialized values and
 - Output layer h2 consists of two neurons since the XOR function returns either 0 (y1=[0,1]) or 1 (y2 = [1,0])
 
@@ -50,7 +51,7 @@ More visually:
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview2.png "Logo Title Text 1")
 
 Let's now train the model. In our simple example the trainable parameters are weights, but be aware that current
-research is exploring more types of parameters to be optimized. For example regularized distributions, topologies,
+research is exploring more types of parameters to be optimized. For example shortcuts between layers, regularized distributions, topologies,
 residual, learning rates, etc.
 
 Backpropagation is a method to update the weights towards the direction (gradient) that minimizes a predefined error metric known as Loss function
