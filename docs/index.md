@@ -121,14 +121,16 @@ three partial derivatives along the chain.
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/update_w2.png){:width="500px"}
 
 Replacing those functions with their partial derivatives give us:
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_detailed.png){:width="500px"}
 
 And now plugin in the matrices:
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_detailed.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers.png){:width="500px"}
 
 #### dLoss/dW2:
 
-The chain rule for updaring the weights of the first weights:
+The chain rule for updaring the weights of the first weights exhibits the posibility of reusing existing computations:
+
+
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1.png){:width="500px"}
 
 We can reuse existing computations:
