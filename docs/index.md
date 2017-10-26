@@ -119,6 +119,7 @@ The chain rule says that we can decompose the modular structure of a neural netw
 
 More visually, we aim to update the weights in blue in the below figure (W2). In order to that, we need to compute the
 three partial derivatives along the chain.
+
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/update_w2.png){:width="500px"}
 
 Replacing those functions with their partial derivatives give us:
@@ -135,6 +136,10 @@ The chain rule for updaring the weights of the first weights exhibits the posibi
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1.png){:width="500px"}
 
+More visually,
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/update_w1.png){:width="500px"}
+
 We can reuse existing computations:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1_numbers.png){:width="700px"}
@@ -143,9 +148,6 @@ Placing all values together:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1_numbers_final.png){:width="700px"}
 
-
-The *Gamma function* satisfying $\Gamma(n) = (n-1)!\quad\forall
-n\in\mathbb N$ is via through the Euler integral
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
+ {% raw %}
+  $$a^2 + b^2 = c^2$$ --> note that all equations between these tags will not need escaping!
+ {% endraw %}
