@@ -1,6 +1,6 @@
 ---
 layout: page
-title: One LEGO at a time&#58; Explaining the Math of how neural networks learn
+title: One LEGO at a time&#58; Explaining the Math of How Neural Networks Learn
 tagline:
 description: Tutorial on back-propagation
 ---
@@ -20,10 +20,9 @@ The reader may find interesting that a neural network is a stack of modules with
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview.png "Logo Title Text 1")
 
-At this point these operations only compute a general linear system and doesn’t have the capacity to model non-linear interactions.
-This changes when we stack one more layer adding depth to this modular structure. The deeper the network, the more subtle non-linear interactions
-can be learned; hence the rise of deep neural models. Finally, a Softmax module converts the activations of a layer values into a
-multinomial probability of k states, one for each class.
+At this point these operations only compute a general linear system and don’t have the capacity to model non-linear interactions.
+This changes when we stack one more layer adding depth to this modular structure. The deeper the network, the more subtle non-linear
+interactions can be learned, which may explain in part the rise of deep neural models.
 
 ## Concrete Example: Learning the XOR Function
 
@@ -40,8 +39,8 @@ separate 0s and 1s, the outputs of the XOR function. Real life problems are also
 The topology of the network is simple:
 - Input X is a two dimensional vector
 - Weights W1 is a 2x3 matrix with randonmly initialized values
-- Hidden layer h1 consists of three neurons. Each neuron receives as input a weighted sum of observations, this inner product
-is highlighted in green: z1 = [x1, x2][w1, w2]
+- Hidden layer h1 consists of three neurons. Each neuron receives as input a weighted sum of observations, this is the inner product
+highlighted in green in the below figure: z1 = [x1, x2][w1, w2]
 - Weights W2 is a 3x2 matrix with randonmly initialized values and
 - Output layer h2 consists of two neurons since the XOR function returns either 0 (y1=[0,1]) or 1 (y2 = [1,0])
 
@@ -60,7 +59,7 @@ given a batch of labeled observations. This algorithm has been repeatedly redisc
 
 ### Network Initialization
 
->Let's initialize the network weights with random numbers:
+>Let's initialize the network weights with random numbers.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/initialized_network.png "Logo Title Text 1"){:width="1300px"}
 
@@ -75,20 +74,20 @@ This is how it happens:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="500px"}
 
-- Scale this weighted sum Z1 with a Sigmoid function to get values of the first hidden layer h1. Note that the original
-2D vector has been mapped to a 3D space after this.
+- Scale this weighted sum z1 with a Sigmoid function to get values of the first hidden layer h1. Note that the original
+2D vector is now mapped to a 3D space.
 
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png){:width="400px"}
 
-- A similar process takes place for the second layer h2. Let's compute first the weighted sum z2 of the values in the
-first hidden layer.
+- A similar process takes place for the second layer h2. Let's compute first the weighted sum z2 of the
+first hidden layer, which is now input data.
 
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z2.png){:width="500px"}
 
 - And then compute their Sigmoid activation function. This vector [0.37166596 0.45414264] represents the log probability
-(logit) or predicted vector provided by the network given input X.
+or predicted vector computed by the network given input X.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png){:width="300px"}
 
@@ -105,17 +104,26 @@ regression. In other words, large squared weight values will increase the loss f
 ### Backward step:
 >The goal of this step is to update the weights of the neural network in a direction that minimizes its Loss function.
 As we will see, this is a recursive algorithm, which can reuse gradients previously computed and heavily relies on
-differentiable functions. Since these updates reduce the loss function, a network is ‘learning’ to approximate the label
+differentiable functions. Since these updates reduce the loss function, a network ‘learnins’ to approximate the label
 of observations with known classes. A property called generalization.
 
-This step goes in reverse order than the forward step. It computes the partial derivative of the loss function
-with respect to the weights connecting to the output layer (dLoss/dW2) and then the hidden layer (dLoss/dW1).
+This step goes in backward order than the forward step. It computes first the partial derivative of the loss function
+with respect to the weights of the output layer (dLoss/dW2) and then the hidden layer (dLoss/dW1). Let's explain
+in detail each one.
 
 #### dLoss/dW2:
 
-The chain rule says that we can decompose the modular structure of a neural network into diferentiable pieces:
+The chain rule says that we can decompose the computation of gradients of a neural network into diferentiable pieces:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2.png){:width="500px"}
+
+Keep in mind the partial deriviative of each function so far:
+
+|  Function       |  First derivative         | Details
+| ------------- |:-------------:| -----:|
+| Loss      | dLoss/dW2 = -(y-h2) |
+| h2 = Sigmoid(z2) | dh2/dz2 = h2(1-h2) |
+| z2 = h1W2 | dz2/dW2 = h1 |
 
 More visually, we aim to update the weights in blue in the below figure (W2). In order to that, we need to compute the
 three partial derivatives along the chain.
