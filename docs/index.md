@@ -120,7 +120,7 @@ The chain rule says that we can decompose the computation of gradients of a neur
 As a memory helper, these are the function definitions used above and their first derivatives:
 
 | Function       |  First derivative |
-|------------------------------ |------------------------------|
+|------------------------------------------------------------ |------------------------------------------------------------|
 |Loss = (y-h2)^2     | dLoss/dW2 = -(y-h2) |
 |h2 = Sigmoid(z2) | dh2/dz2 = h2(1-h2) |
 |z2 = h1W2 | dz2/dW2 = h1 |
