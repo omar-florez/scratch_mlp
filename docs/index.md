@@ -120,10 +120,19 @@ The chain rule says that we can decompose the computation of gradients of a neur
 Keep in mind the partial deriviative of each function so far:
 
 |  Function       |  First derivative         |
-| -------------------- |:--------------------:| 
+| -------------------- |--------------------|
 | Loss      | dLoss/dW2 = -(y-h2) |
 | h2 = Sigmoid(z2) | dh2/dz2 = h2(1-h2) |
 | z2 = h1W2 | dz2/dW2 = h1 |
+
+
+| Rating    | Security            | Explanation                             |
+|-----------|---------------------|-----------------------------------------|
+| Excellent | Very secure         | Criteria is met optimal                 |
+| High      | Secure              | Criteria is met                         |
+| Mid       | Insufficient secure | Criteria is met partly                  |
+| Low       | Insecure            | Criteria is no met                      |
+| N/A       | Not rated           | Criteria is not available or irrelevant |
 
 More visually, we aim to update the weights in blue in the below figure (W2). In order to that, we need to compute the
 three partial derivatives along the chain.
