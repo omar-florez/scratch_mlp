@@ -163,4 +163,4 @@ Placing all derivatives together, we can execute the chain rule again to update 
 
 Finally, we assign the new values of the weights and have completed an iteration on the trainint of network.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/copy_values.png){:width="300px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/copy_values.png){:width="100px"}
