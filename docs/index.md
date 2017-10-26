@@ -117,54 +117,50 @@ The chain rule says that we can decompose the computation of gradients of a neur
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2.png){:width="500px"}
 
-Keep in mind the partial deriviative of each function so far:
+As a memory helper, these are the function definitions used above and their first derivatives:
 
-Function       |  First derivative
--------------------- |--------------------
-Loss      | dLoss/dW2 = -(y-h2)
-h2 = Sigmoid(z2) | dh2/dz2 = h2(1-h2)
-z2 = h1W2 | dz2/dW2 = h1 |
+| Function       |  First derivative |
+|------------------------------ |------------------------------|
+|Loss = (y-h2)^2     | dLoss/dW2 = -(y-h2) |
+|h2 = Sigmoid(z2) | dh2/dz2 = h2(1-h2) |
+|z2 = h1W2 | dz2/dW2 = h1 |
 
 
-| Rating    | Security            | Explanation                             |
-|-----------|---------------------|-----------------------------------------|
-| Excellent | Very secure         | Criteria is met optimal                 |
-| High      | Secure              | Criteria is met                         |
-| Mid       | Insufficient secure | Criteria is met partly                  |
-| Low       | Insecure            | Criteria is no met                      |
-| N/A       | Not rated           | Criteria is not available or irrelevant |
-
-More visually, we aim to update the weights in blue in the below figure (W2). In order to that, we need to compute the
+More visually, we aim to update the weights W2 (in blue) in the below figure. In order to that, we need to compute
 three partial derivatives along the chain.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/update_w2.png){:width="500px"}
 
-Replacing those functions with their partial derivatives give us:
+Replacing these partial derivatives with their corresponding values allow us to compute them as follows.
+
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_detailed.png){:width="600px"}
 
-And now plugin in the matrices:
+And putting pieces together results in the 3x2 matrix dLoss/dW2, which will update the original W2 values in the direction
+of minimizing the Loss function.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers.png){:width="600px"}
 
 #### dLoss/dW2:
 
-The chain rule for updaring the weights of the first weights exhibits the posibility of reusing existing computations:
-<br><br><br>
+Computing the chain rule for updating the weights of the first hidden layer W1 exhibits the posibility of reusing existing
+computations.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1.png){:width="500px"}
 
-More visually,
+More visually, the path from the output layer to the weights W1 touches partial derivatives already computed in latter
+layers.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/update_w1.png){:width="500px"}
 
-We can reuse existing computations:
+For example, partial derivatives dLoss/dh2 and dh2/dz2 have been already computed as a dependency for learning weights
+of the output layer dLoss/dW2 in the previous section.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1_numbers.png){:width="700px"}
 
-Placing all values together:
+Placing all derivatives together, we can execute the chain rule again to update the weights of the hidden layer W1:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1_numbers_final.png){:width="700px"}
 
- {% raw %}
-  $$a^2 + b^2 = c^2$$ --> note that all equations between these tags will not need escaping!
- {% endraw %}
+Finally, we assign the new values of the weights and have completed an iteration on the trainint of network.
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/copy_values.png){:width="500px"}
