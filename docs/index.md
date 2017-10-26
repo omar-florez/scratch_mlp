@@ -119,8 +119,8 @@ The chain rule says that we can decompose the computation of gradients of a neur
 
 Keep in mind the partial deriviative of each function so far:
 
-|  Function       |  First derivative         | Details
-| ------------- |:-------------:| -----:|
+|  Function       |  First derivative         |
+| -------------------- |:--------------------:| 
 | Loss      | dLoss/dW2 = -(y-h2) |
 | h2 = Sigmoid(z2) | dh2/dz2 = h2(1-h2) |
 | z2 = h1W2 | dz2/dW2 = h1 |
@@ -131,7 +131,7 @@ three partial derivatives along the chain.
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/update_w2.png){:width="500px"}
 
 Replacing those functions with their partial derivatives give us:
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_detailed.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_detailed.png){:width="600px"}
 
 And now plugin in the matrices:
 
