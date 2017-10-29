@@ -5,10 +5,10 @@ tagline:
 description: Tutorial on back-propagation
 ---
 
->A neural network is a clever arrangement of linear and non-linear modules. When we choose and connect them wisely,
-we have a powerful tool to approximate any mathematical function. For example one that separates classes as a non-linear
+>A **neural network** is a clever arrangement of linear and non-linear modules. When we choose and connect them wisely,
+we have a powerful tool to approximate any mathematical function. For example one that separates classes with a non-linear
 decision boundary. A topic that is not always explained in depth, despite of its intuitive and modular nature, is the
-back-propagation technique responsible for updating trainable parameters. Let’s explore this algorithm to see the internal
+**backpropagation technique** responsible for updating trainable parameters. Let’s explore this algorithm to see the internal
 functioning of a neural network using LEGO pieces as a modular analogy, one brick at a time.
 
 The below figure depicts some of the Math used for training a neural network. We will make sense of this during this article.
