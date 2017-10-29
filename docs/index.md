@@ -26,10 +26,10 @@ interactions can be learned, which may explain in part the rise of deep neural m
 
 ## Why is this Important?
 
-Because debudding machine learning models is a complex task. In my experience I often notice that when things do not
- work as expected (e.g., low testing accuracy, longer training times, bad generatization, large amount of false negatives,
- NaN predictions, etc.) it really helps to know the internal parts of the algorithm. Just when you deassemble the black box,
- you can create more complex capabilities or levaring invariants in its behavior. For example,
+Because debugging machine learning models is a complex task. In my experience I often notice that when things do not
+ work as expected (e.g., low testing accuracy, longer training times, bad generalization, large amount of false negatives,
+ NaN predictions, etc.) it really helps to know the internal parts of the algorithm. Just when you disassemble the black box,
+ you can create more complex capabilities or leveraging invariants in its behavior. For example,
  - If it takes so much time to train, it maybe be a good idea to increase the size of a minibatch to reduce the variance
  in the examples and thus helping the algorithm to converge
  - NaN predictions often indicate that the algorithm expected larger gradients, so in presence of small one the negative
@@ -49,10 +49,10 @@ separate 0s and 1s, the outputs of the XOR function. Real life problems are also
 
 The topology of the network is simple:
 - Input X is a two dimensional vector
-- Weights W1 is a 2x3 matrix with randonmly initialized values
+- Weights W1 is a 2x3 matrix with randomly initialized values
 - Hidden layer h1 consists of three neurons. Each neuron receives as input a weighted sum of observations, this is the inner product
 highlighted in green in the below figure: z1 = [x1, x2][w1, w2]
-- Weights W2 is a 3x2 matrix with randonmly initialized values and
+- Weights W2 is a 3x2 matrix with randomly initialized values and
 - Output layer h2 consists of two neurons since the XOR function returns either 0 (y1=[0,1]) or 1 (y2 = [1,0])
 
 
@@ -115,7 +115,7 @@ regression. In other words, large squared weight values will increase the loss f
 ### Backward step:
 >The goal of this step is to update the weights of the neural network in a direction that minimizes its Loss function.
 As we will see, this is a recursive algorithm, which can reuse gradients previously computed and heavily relies on
-differentiable functions. Since these updates reduce the loss function, a network ‘learnins’ to approximate the label
+differentiable functions. Since these updates reduce the loss function, a network ‘learns’ to approximate the label
 of observations with known classes. A property called generalization.
 
 This step goes in backward order than the forward step. It computes first the partial derivative of the loss function
@@ -124,7 +124,7 @@ in detail each one.
 
 #### dLoss/dW2:
 
-The chain rule says that we can decompose the computation of gradients of a neural network into diferentiable pieces:
+The chain rule says that we can decompose the computation of gradients of a neural network into differentiable pieces:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2.png){:width="500px"}
 
@@ -153,7 +153,7 @@ of minimizing the Loss function.
 
 #### dLoss/dW2:
 
-Computing the chain rule for updating the weights of the first hidden layer W1 exhibits the posibility of reusing existing
+Computing the chain rule for updating the weights of the first hidden layer W1 exhibits the possibility of reusing existing
 computations.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1.png){:width="500px"}
@@ -172,7 +172,7 @@ Placing all derivatives together, we can execute the chain rule again to update 
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1_numbers_final.png){:width="700px"}
 
-Finally, we assign the new values of the weights and have completed an iteration on the trainint of network.
+Finally, we assign the new values of the weights and have completed an iteration on the training of network.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/copy_values.png){:width="100px"}
 
@@ -182,8 +182,9 @@ A simple neural network shows us.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif){:height="500px"}
 
-Adding more neurons to the network increases its comlexity to learn non-linear decision boundaries.
+Adding more neurons to the network increases its complexity to learn non-linear decision boundaries.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif){:height="500px"}
+
 
 
