@@ -11,18 +11,6 @@ decision boundary. A topic that is not always explained in depth, despite of its
 back-propagation technique responsible for updating trainable parameters. Let’s explore this algorithm to see the internal
 functioning of a neural network using LEGO pieces as a modular analogy, one brick at a time.
 
-## Why is this Important?
-
-Because debudding machine learning models is a complex task. In my experience I often notice that when things do not
- work as expected (e.g., low testing accuracy, longer training times, bad generatization, large amount of false negatives,
- NaN predictions, etc.) it really helps to know the internal parts of the algorithm. Just when you deassemble the black box,
- you can create more complex capabilities or levaring invariants in its behavior. For example,
- - If it takes so much time to train, it maybe be a good idea to increase the size of a minibatch to reduce the variance
- in the examples and thus helping the algorithm to converge
- - NaN predictions often indicate that the algorithm expected larger gradients, so in presence of small one the negative
- exponential of the Sigmoid activation 1.0/(1.0+np.exp(-WX)) produces memory overflow.
-
-
 The below figure depicts some of the Math used for training a neural network. We will make sense of this during this article.
 The reader may find interesting that a neural network is a stack of modules with different purposes:
 
@@ -35,6 +23,17 @@ The reader may find interesting that a neural network is a stack of modules with
 At this point these operations only compute a general linear system and don’t have the capacity to model non-linear interactions.
 This changes when we stack one more layer adding depth to this modular structure. The deeper the network, the more subtle non-linear
 interactions can be learned, which may explain in part the rise of deep neural models.
+
+## Why is this Important?
+
+Because debudding machine learning models is a complex task. In my experience I often notice that when things do not
+ work as expected (e.g., low testing accuracy, longer training times, bad generatization, large amount of false negatives,
+ NaN predictions, etc.) it really helps to know the internal parts of the algorithm. Just when you deassemble the black box,
+ you can create more complex capabilities or levaring invariants in its behavior. For example,
+ - If it takes so much time to train, it maybe be a good idea to increase the size of a minibatch to reduce the variance
+ in the examples and thus helping the algorithm to converge
+ - NaN predictions often indicate that the algorithm expected larger gradients, so in presence of small one the negative
+ exponential of the Sigmoid activation 1.0/(1.0+np.exp(-WX)) produces memory overflow.
 
 ## Concrete Example: Learning the XOR Function
 
