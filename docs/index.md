@@ -11,6 +11,18 @@ decision boundary. A topic that is not always explained in depth, despite of its
 back-propagation technique responsible for updating trainable parameters. Let’s explore this algorithm to see the internal
 functioning of a neural network using LEGO pieces as a modular analogy, one brick at a time.
 
+## Why is this Important?
+
+Because debudding machine learning models is a complex task. In my experience I often notice that when things do not
+ work as expected (e.g., low testing accuracy, longer training times, bad generatization, large amount of false negatives,
+ NaN predictions, etc.) it really helps to know the internal parts of the algorithm. Just when you deassemble the black box,
+ you can create more complex capabilities or levaring invariants in its behavior. For example,
+ - If it takes so much time to train, it maybe be a good idea to increase the size of a minibatch to reduce the variance
+ in the examples and thus helping the algorithm to converge
+ - NaN predictions often indicate that the algorithm expected larger gradients, so in presence of small one the negative
+ exponential of the Sigmoid activation 1.0/(1.0+np.exp(-WX)) produces memory overflow.
+
+
 The below figure depicts some of the Math used for training a neural network. We will make sense of this during this article.
 The reader may find interesting that a neural network is a stack of modules with different purposes:
 
@@ -164,3 +176,15 @@ Placing all derivatives together, we can execute the chain rule again to update 
 Finally, we assign the new values of the weights and have completed an iteration on the trainint of network.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/copy_values.png){:width="100px"}
+
+### Model is Alive
+
+A simple neural network shows us.
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif){:height="500px"}
+
+Adding more neurons to the network increases its comlexity to learn non-linear decision boundaries.
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif){:height="500px"}
+
+

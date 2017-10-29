@@ -1,6 +1,17 @@
+#!/usr/bin/env python
+# @Author: Omar U. Florez
+# @Date:   October 28, 2017
+
+'''
+Train a feed forward neural network using only numpy Math library. This contains step by step explanation of the 
+learning process of the network. 
+'''
+
 import numpy as np
 import ipdb
 from scratch_mlp import utils
+utils.reset_folders()
+
 
 def load_XOR_data(N=300):
     rng = np.random.RandomState(0)
@@ -34,14 +45,16 @@ def inference(data, weights):
 
 def run():
     #size of minibatch: int(X.shape[0])
-    N = 1
+    N = 50
     X, y = load_XOR_data(N=300)
     input_dim = int(X.shape[1])
-    hidden_dim = 3
+    hidden_dim = 10
     output_dim = 2
     num_epochs = 1000000
     learning_rate= 1e-3
-    reg_coeff = 0.0
+    reg_coeff = 1e-4
+    losses = []
+    accuracies=[]
 
     #Initialize weights:
     np.random.seed(2017)
@@ -51,27 +64,27 @@ def run():
     #Calibratring variances with 1/sqrt(fan_in)
     w1 /= np.sqrt(input_dim)
     w2 /= np.sqrt(hidden_dim)
-    num_params = w1.shape[0]*w1.shape[1] + w2.shape[0]*w2.shape[1]
     for i in range(num_epochs):
 
         index = np.arange(X.shape[0])[:N]
-        #shuffle indices:
-        #np.random.shuffle(index)
+        #is want to shuffle indices: np.random.shuffle(index)
 
         #---------------------------------------------------------------------------------------------------------------
-        #forward step:
+        # Forward step:
         h1 = sigmoid(np.matmul(X[index], w1))                   #(N, 3)
         logits = sigmoid(np.matmul(h1, w2))                     #(N, 2)
         probs = np.exp(logits)/np.sum(np.exp(logits), axis=1, keepdims=True)
         h2 = logits
 
         #---------------------------------------------------------------------------------------------------------------
-        #loss: mean squared error
+        # Definition of Loss function: mean squared error plus Ridge regularization
         L = np.square(y[index]-h2).sum()/(2*N) + reg_coeff*(np.square(w2).sum()+np.square(w2).sum())/(2*N)
 
+        losses.append([i,L])
+
         #---------------------------------------------------------------------------------------------------------------
-        #backward step: Error = W_l e_l+1 f'_l
-        #dL/dw2 = dL/dh2 * dh2/dz2 * dz2/dw2
+        # Backward step: Error = W_l e_l+1 f'_l
+        #       dL/dw2 = dL/dh2 * dh2/dz2 * dz2/dw2
         dL_dh2 = -(y[index] - h2)                               #(N, 2)
         dh2_dz2 = sigmoid(h2, first_derivative=True)            #(N, 2)
         dz2_dw2 = h1                                            #(N, hidden_dim)
@@ -79,8 +92,8 @@ def run():
         dL_dw2 = dz2_dw2.T.dot(dL_dh2*dh2_dz2) + reg_coeff*np.square(w2).sum()
 
         #dL/dw1 = dL/dh1 * dh1/dz1 * dz1/dw1
-        #         dL/dh1 = dL/dz2 * dz2/dh1
-        #         dL/dz2 = dL/dh2 * dh2/dz2
+        #       dL/dh1 = dL/dz2 * dz2/dh1
+        #       dL/dz2 = dL/dh2 * dh2/dz2
         dL_dz2 = dL_dh2 * dh2_dz2                               #(N, 2)
         dz2_dh1 = w2                                            #z2 = h1*w2
         dL_dh1 =  dL_dz2.dot(dz2_dh1.T)                         #(N,2)x(2, hidden_dim)=(N, hidden_dim)
@@ -92,15 +105,23 @@ def run():
         #weight updates:
         w2 += -learning_rate*dL_dw2
         w1 += -learning_rate*dL_dw1
-        ipdb.set_trace()
-        if (i+1)%1000==0:
+        if True: #(i+1)%1000==0:
             y_pred = inference(X, [w1, w2])
             y_actual = np.argmax(y, axis=1)
             accuracy = np.sum(np.equal(y_pred,y_actual))/len(y_actual)
-            print('Epoch %d\tLoss: %f Average L1 error: %f Accuracy: %f' %(i, L, np.mean(np.abs(dL_dh2)), accuracy))
+            accuracies.append([i, accuracy])
 
-        if (i+1)% 100000 == 0:
-            utils.plot_decision_boundary(X, y_actual, lambda x: inference(x, [w1, w2]))
-            ipdb.set_trace()
+        if (i+1)% 10000 == 0:
+            print('Epoch %d\tLoss: %f Average L1 error: %f Accuracy: %f' %(i, L, np.mean(np.abs(dL_dh2)), accuracy))
+            save_filepath = './scratch_mlp/plots/boundary/image_%d.png'%i
+            text = 'Batch #: %d    Accuracy: %.2f    Loss value: %.2f'%(i, accuracy, L)
+            utils.plot_decision_boundary(X, y_actual, lambda x: inference(x, [w1, w2]),
+                                         save_filepath=save_filepath, text = text)
+            save_filepath = './scratch_mlp/plots/loss/image_%d.png' % i
+            utils.plot_function(losses, save_filepath=save_filepath, ylabel='Loss', title='Loss estimation')
+            save_filepath = './scratch_mlp/plots/accuracy/image_%d.png' % i
+            utils.plot_function(accuracies, save_filepath=save_filepath, ylabel='Accuracy', title='Accuracy estimation')
+
+            #ipdb.set_trace()
 
 run()
