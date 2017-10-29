@@ -1,9 +1,6 @@
-## Simple site: Easy websites with GitHub pages
+## One LEGO at a time: Explaining the Math of How Neural Networks Learn
 
-[Github Pages](https://pages.github.com) provide a simple way to make a
-website using Markdown and git.
-
-This is a minimal tutorial to get started.
+This is a minimal tutorial to start getting insights about the Math needed to train a neural network.
 
 View the thing [here](http://kbroman.org/simple_site).
 
