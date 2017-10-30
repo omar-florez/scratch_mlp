@@ -11,22 +11,6 @@ decision boundary**. A topic that is not always explained in depth, despite of i
 **backpropagation technique** responsible for updating trainable parameters. Let’s explore this algorithm to see the internal
 functioning of a neural network using **LEGO pieces as a modular analogy**, one brick at a time.
 
-## Why should I read this?
->If you understand the internal parts of a neural network, you will quickly know **what to change first** when things don't work
-and define an strategy to **test invariants and expected behaviors** that you know are part the algorithm.
-
-**Because debugging machine learning models is a complex task**. By experience, mathematical models don't
- work as expected the first try. They may give you low accuracy for new data, spending long training time or too much memory,
- return a large number of false negatives or NaN predictions, etc. Let me show some cases:
-
- - If it **takes so much time to train**, it is maybe be a good idea to increase the size of a minibatch to reduce the variance
- in the examples and thus to help the algorithm to converge
- - **NaN predictions** often indicate that the algorithm received small gradients the negative
- exponential of the Sigmoid activation 1.0/(1.0+np.exp(-WX)) produces memory overflow.
-
-This will also be helpful when you want to **create new capabilities that are not currently implemented in the ML
-library** you are using.
-
 ## Neural Networks as a Composition of Pieces
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview.png "Logo Title Text 1")
@@ -42,6 +26,20 @@ neural activations in the first hidden layer h1**
 At this point these operations only compute a **general linear system** and don’t have the capacity to model non-linear interactions.
 This changes when we stack one more layer, adding depth to this modular structure. The deeper the network, the more subtle non-linear
 interactions we can learn, which may explain in part the rise of deep neural models.
+
+## Why should I read this?
+**Because debugging machine learning models is a complex task**. By experience, mathematical models don't
+ work as expected the first try. They may give you low accuracy for new data, spending long training time or too much memory,
+ return a large number of false negatives or NaN predictions, etc. Let me show some cases:
+
+ - If it **takes so much time to train**, it is maybe be a good idea to increase the size of a minibatch to reduce the variance
+ in the examples and thus to help the algorithm to converge
+ - **NaN predictions** often indicate that the algorithm received small gradients the negative
+ exponential of the Sigmoid activation 1.0/(1.0+np.exp(-WX)) produces memory overflow.
+
+>If you understand the internal parts of a neural network, you will quickly know **what to change first** when things don't work
+and define an strategy to **test invariants** and **expected behaviors** that you know are part the algorithm. This will also
+be helpful when you want to **create new capabilities that are not currently implemented in the ML library** you are using.
 
 ## Concrete Example: Learning the XOR Function
 
