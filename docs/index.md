@@ -188,18 +188,18 @@ Finally, we assign the new values of the weights and have completed an iteration
 
 ### Model is Alive
 
-See below two neural networks trained to approximate the XOR function over many iterations. Left plot: Accuracy.
-Central plot: Model prediction. Right plot: Loss function.
+See below **two neural networks** trained to approximate the **XOR function** over many iterations. **Left plot:** Accuracy.
+**Central plot:** Model prediction. **Right plot:** Loss function.
 
-A simple neural network with 3 neurons in the hidden layer. Since the capacitu of this model is small, the model learns
-to separate the 2 classes with a simple decision boundary that starts being a straing line but then shows a non-linear
-shape. Loss function (right plot) nicely gets lover over iterations.
+A simple neural network with **3 neurons** in the hidden layer has small capacity. The model learns to separate 2 classes
+with a **simple decision boundary** that starts being a straight line but then has a non-linear shape.
+The loss function, in the right plot, nicely gets lower over consecutive iterations.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif){:height="800px"}
 
-Having 50 neurons in the hidden layer notably increases the power of the model to learn complex decision boundaries. This
-not only produces more accurate results, but can produce exploiting gradients when gradients are too large or model overfits
-to the training dataset (step 90). Exploiding and vanishing gradients are interesting phenomenons that we will devote an
+Having now **50 neurons** in the hidden layer notably increases the power of the model to learn **complex decision boundaries**.
+This not only produces more accurate results, but can produce **exploiting gradients** with values too large to be stored
+in a floating numerical variable or when model overfits the training dataset (step 90). Exploiding and vanishing gradients are interesting phenomenons that we will devote an
 entire analysis later.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif){:height="800px"}
