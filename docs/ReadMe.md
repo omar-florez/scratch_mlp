@@ -1,9 +1,3 @@
----
-layout: page
-title: One LEGO at a time&#58; Explaining the Math of How Neural Networks Learn
-tagline:
-description: Tutorial on back-propagation
----
 
 >A **neural network** is a clever arrangement of linear and non-linear modules. When we choose and connect them wisely,
 we have a powerful tool to approximate any mathematical function. For example one that **separates classes with a non-linear
