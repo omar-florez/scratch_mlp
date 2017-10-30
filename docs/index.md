@@ -21,13 +21,13 @@ The above figure depicts some of the Math used for training a neural network. We
 The reader may find interesting that a neural network is a stack of modules with different purposes:
 
 - **Input X** feeds a neural network with raw data, which is stored in a matrix in which observations are rows and dimensions are columns
-- **Weights W1** maps input X to the first hidden layer. Weights W1 works then as a linear kernel
-- A **Sigmoid function** prevents numbers from falling out of range by scaling them to 0-1. The result is an **array of
-neural activations** in the first hidden layer h1 = Sigmoid(WX)
+- **Weights W1** maps input X to the first hidden layer h1. Weights W1 works then as a linear kernel
+- A **Sigmoid function** prevents numbers in the hidden layer from falling out of range by scaling them to 0-1. The result is an **array of
+neural activations** h1 = Sigmoid(WX)
 
-At this point these operations only compute a **general linear system** and don’t have the capacity to model non-linear interactions.
+At this point these operations only compute a **general linear system**, which doesn’t have the capacity to model non-linear interactions.
 This changes when we stack one more layer, adding depth to this modular structure. The deeper the network, the more subtle non-linear
-interactions we can learn, which may explain in part the rise of deep neural models.
+interactions we can learn and more complex problems we can solve, which may explain in part the rise of deep neural models.
 
 ## Why should I read this?
 
@@ -36,13 +36,14 @@ and define an strategy to **test invariants** and **expected behaviors** that yo
 be helpful when you want to **create new capabilities that are not currently implemented in the ML library** you are using.
 
 **Because debugging machine learning models is a complex task**. By experience, mathematical models don't
- work as expected the first try. They may give you low accuracy for new data, spending long training time or too much memory,
- return a large number of false negatives or NaN predictions, etc. Let me show some cases:
+ work as expected the first try. They may give you low accuracy for new data, spend long training time or too much memory,
+ return a large number of false negatives or NaN predictions, etc. Let me show some cases when knowing how the algorithm works
+ can become handy:
 
  - If it **takes so much time to train**, it is maybe a good idea to increase the size of a minibatch to reduce the variance
  in the observations and thus to help the algorithm to converge
- - **NaN predictions** often indicate that the algorithm received large gradients producing memory overflow. Think of this as
- as consecutive matrix multiplications that can exploit through many iterations. Decreasing the learning rate will have the
+ - If you observe **NaN predictions**, the algorithm may have received large gradients producing memory overflow. Think of
+ this as consecutive matrix multiplications that exploit after many iterations. Decreasing the learning rate will have the
  effect of scale down these values. Reducing the number of layers will decrease the number of multiplications. And clipping
  gradients will control this problem explicitly
 
@@ -64,7 +65,6 @@ The topology of the network is simple:
 highlighted in green in the below figure: **z1 = [x1, x2][w1, w2]**
 - **Weights W2** is a 3x2 matrix with randomly initialized values and
 - **Output layer h2** consists of two neurons since the XOR function returns either 0 (y1=[0,1]) or 1 (y2 = [1,0])
-
 
 More visually:
 
@@ -188,11 +188,19 @@ Finally, we assign the new values of the weights and have completed an iteration
 
 ### Model is Alive
 
-A simple neural network shows us.
+See below two neural networks trained to approximate the XOR function over many iterations. Left plot: Accuracy.
+Central plot: Model prediction. Right plot: Loss function.
+
+A simple neural network with 3 neurons in the hidden layer. Since the capacitu of this model is small, the model learns
+to separate the 2 classes with a simple decision boundary that starts being a straing line but then shows a non-linear
+shape. Loss function (right plot) nicely gets lover over iterations.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif){:height="800px"}
 
-Adding more neurons to the network increases its complexity to learn non-linear decision boundaries.
+Having 50 neurons in the hidden layer notably increases the power of the model to learn complex decision boundaries. This
+not only produces more accurate results, but can produce exploiting gradients when gradients are too large or model overfits
+to the training dataset (step 90). Exploiding and vanishing gradients are interesting phenomenons that we will devote an
+entire analysis later.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif){:height="800px"}
 
