@@ -117,8 +117,8 @@ or **predicted vector** computed by the network given input X.
 >Also known as "actual minus predicted", the goal of the loss function is to **quantify the distance between the predicted
  vector h2 and the actual label provided by humans y**.
 
-Note that the loss function Loss contains a **regularization component** that penalizes large weight values as in a Ridge
-regression. In other words, large squared weight values will increase the loss function, **an error metric we indeed want to minimize**.
+Note that the Loss function contains a **regularization component** that penalizes large weight values as in a Ridge
+regression. In other words, large squared weights values will increase the Loss function, **an error metric we indeed want to minimize**.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/loss.png){:width="500px"}
 
@@ -145,6 +145,7 @@ As a memory helper, these are the **function definitions** used above and their 
 |Loss = (y-h2)^2     | dLoss/dW2 = -(y-h2) |
 |h2 = Sigmoid(z2) | dh2/dz2 = h2(1-h2) |
 |z2 = h1W2 | dz2/dW2 = h1 |
+|z2 = h1W2 | dz2/dh1 = W2 |
 
 
 More visually, we aim to update the weights W2 (in blue) in the below figure. In order to that, we need to compute
@@ -152,14 +153,13 @@ three **partial derivatives along the chain**.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/update_w2.png){:width="500px"}
 
-Replacing these partial derivatives with their corresponding values allow us to compute them as follows.
+Plugging in values into these partial derivatives allow us to compute gradients with respect to weights W2 as follows.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_detailed.png){:width="600px"}
 
-And putting pieces together results in the 3x2 matrix dLoss/dW2, which will update the original W2 values in the direction
-of minimizing the Loss function.
+The result is a 3x2 matrix dLoss/dW2, which will update the original W2 values in a direction that minimizes the Loss function.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers.png){:width="600px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers.png){:width="700px"}
 
 #### dLoss/dW2:
 
@@ -197,13 +197,13 @@ The loss function, in the right plot, nicely gets lower over consecutive iterati
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif){:height="800px"}
 
-Having now **50 neurons** in the hidden layer notably increases model's power to learn **complex decision boundaries**.
+Having  **50 neurons** in the hidden layer notably increases model's power to learn **complex decision boundaries**.
 This coud not only produce more accurate results, but also **exploiting gradients** too large that cannot be stored
-in a floating numerical variable (steps > 90). When large gradients multiply weights during backpropagation, they
-generated quite large new weight values. This is why the **Loss value suddenly increases** during the last steps of the
-training as the **regularization component** of the Loss function compute the **squared weight values**.
-This could be avoid by having a policy to reduce the learning rate over time. Or having a stronger regularization, maybe
-L1 instead of L2. **Exploiding** and **vanishing gradients** are interesting phenomenons that we will devote an entire
+as a floating numerical variable (steps > 90). When large gradients multiply weights during backpropagation, they
+generated quite large updated weights. This is why the **Loss value suddenly increases** during the last steps of the
+training as the **regularization component** of the Loss function computes the **squared weight values** (sum(W^2)/2N).
+This could be avoid by having a policy that reduces the learning rate over time. Or having a stronger regularization, maybe
+L1 instead of L2. **Exploiding** and **vanishing gradients** are interesting phenomenons and we will devote an entire
 analysis later.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif){:height="800px"}
