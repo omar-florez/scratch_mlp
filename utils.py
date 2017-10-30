@@ -1,18 +1,10 @@
-#http://rasbt.github.io/mlxtend/
-from sklearn.linear_model import LogisticRegression
-from sklearn.naive_bayes import GaussianNB
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.svm import SVC
-
 # Loading Plotting Utilities
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
-import itertools
-from mlxtend.plotting import plot_decision_regions
+
 import numpy as np
 import os
 import imageio
-import ipdb
 import shutil
 
 
@@ -120,13 +112,11 @@ def make_all_gif(input_folder, save_filepath):
         ax.imshow(episode_frames_boundary[i], interpolation='none')
         ax.set_axis_off()
         ax.set_aspect('equal')
-        #ax.set_adjustable('box-forced')
 
         ax = axes.flat[2]
         ax.imshow(episode_frames_loss[i], interpolation='none')
         ax.set_axis_off()
         ax.set_aspect('equal')
-        #ax.set_adjustable('box-forced')
 
         fig.tight_layout()
         plt.suptitle('Step = %d' %i, fontsize=18)
@@ -146,32 +136,3 @@ def reset_folders():
         if os.path.exists(f):
             shutil.rmtree(f)
             os.mkdir(f)
-
-
-# # take second element for sort
-# def takeSecond(elem):
-#     return elem[1]
-#
-# # random list
-# random = [(2, 2), (3, 4), (4, 1), (1, 3)]
-#
-# # sort list with key
-# sortedList = sorted(random, key=takeSecond)
-#
-# # print list
-# print('Sorted list:', sortedList)
-#
-# ###
-# files.sort(key=lambda x: os.path.getmtime(x))
-
-if __name__ == '__main__':
-    #save_filepath = './scratch_mlp/plots/gif/boundary.gif'
-    #make_gif('./scratch_mlp/plots/boundary/', save_filepath)
-    #save_filepath = './scratch_mlp/plots/gif/loss.gif'
-    #make_gif('./scratch_mlp/plots/loss/', save_filepath)
-    #save_filepath = './scratch_mlp/plots/gif/accuracy.gif'
-    #make_gif('./scratch_mlp/plots/accuracy/', save_filepath)
-
-    input_folder = './scratch_mlp/plots/'
-    save_filepath = './scratch_mlp/plots/gif/all.gif'
-    make_all_gif(input_folder, save_filepath)

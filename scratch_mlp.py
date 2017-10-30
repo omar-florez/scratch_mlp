@@ -12,7 +12,6 @@ import ipdb
 from scratch_mlp import utils
 utils.reset_folders()
 
-
 def load_XOR_data(N=300):
     rng = np.random.RandomState(0)
     X = rng.randn(N, 2)
@@ -52,11 +51,12 @@ def run():
     output_dim = 2
     num_epochs = 1000000
     learning_rate= 1e-3
-    reg_coeff = 1e-4
+    reg_coeff = 1e-6
     losses = []
     accuracies=[]
 
-    #Initialize weights:
+    #---------------------------------------------------------------------------------------------------------------
+    # Initialize weights:
     np.random.seed(2017)
     w1 = 2.0*np.random.random((input_dim, hidden_dim))-1.0      #w0=(2,hidden_dim)
     w2 = 2.0*np.random.random((hidden_dim, output_dim))-1.0     #w1=(hidden_dim,2)
@@ -121,7 +121,5 @@ def run():
             utils.plot_function(losses, save_filepath=save_filepath, ylabel='Loss', title='Loss estimation')
             save_filepath = './scratch_mlp/plots/accuracy/image_%d.png' % i
             utils.plot_function(accuracies, save_filepath=save_filepath, ylabel='Accuracy', title='Accuracy estimation')
-
-            #ipdb.set_trace()
 
 run()
