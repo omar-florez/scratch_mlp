@@ -23,7 +23,7 @@ The reader may find interesting that a neural network is a stack of modules with
 - **Input X** feeds a neural network with raw data, which is stored in a matrix in which observations are rows and dimensions are columns
 - **Weights W1** maps input X to the first hidden layer. Weights W1 works then as a linear kernel
 - A **Sigmoid function** prevents numbers from falling out of range by scaling them to 0-1. The result is an **array of
-neural activations** in the first hidden layer h1
+neural activations** in the first hidden layer h1 = Sigmoid(WX)
 
 At this point these operations only compute a **general linear system** and don’t have the capacity to model non-linear interactions.
 This changes when we stack one more layer, adding depth to this modular structure. The deeper the network, the more subtle non-linear
@@ -41,8 +41,10 @@ be helpful when you want to **create new capabilities that are not currently imp
 
  - If it **takes so much time to train**, it is maybe a good idea to increase the size of a minibatch to reduce the variance
  in the observations and thus to help the algorithm to converge
- - **NaN predictions** often indicate that the algorithm received small gradients the negative
- exponential of the Sigmoid activation 1.0/(1.0+np.exp(-WX)) produces memory overflow.
+ - **NaN predictions** often indicate that the algorithm received large gradients producing memory overflow. Think of this as
+ as consecutive matrix multiplications that can exploit through many iterations. Decreasing the learning rate will have the
+ effect of scale down these values. Reducing the number of layers will decrease the number of multiplications. And clipping
+ gradients will control this problem explicitly
 
 ## Concrete Example: Learning the XOR Function
 
