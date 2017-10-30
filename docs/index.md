@@ -30,18 +30,19 @@ This changes when we stack one more layer, adding depth to this modular structur
 interactions we can learn, which may explain in part the rise of deep neural models.
 
 ## Why should I read this?
-**Because debugging machine learning models is a complex task**. By experience, mathematical models don't
- work as expected the first try. They may give you low accuracy for new data, spending long training time or too much memory,
- return a large number of false negatives or NaN predictions, etc. Let me show some cases:
-
- - If it **takes so much time to train**, it is maybe be a good idea to increase the size of a minibatch to reduce the variance
- in the examples and thus to help the algorithm to converge
- - **NaN predictions** often indicate that the algorithm received small gradients the negative
- exponential of the Sigmoid activation 1.0/(1.0+np.exp(-WX)) produces memory overflow.
 
 >If you understand the internal parts of a neural network, you will quickly know **what to change first** when things don't work
 and define an strategy to **test invariants** and **expected behaviors** that you know are part the algorithm. This will also
 be helpful when you want to **create new capabilities that are not currently implemented in the ML library** you are using.
+
+**Because debugging machine learning models is a complex task**. By experience, mathematical models don't
+ work as expected the first try. They may give you low accuracy for new data, spending long training time or too much memory,
+ return a large number of false negatives or NaN predictions, etc. Let me show some cases:
+
+ - If it **takes so much time to train**, it is maybe a good idea to increase the size of a minibatch to reduce the variance
+ in the observations and thus to help the algorithm to converge
+ - **NaN predictions** often indicate that the algorithm received small gradients the negative
+ exponential of the Sigmoid activation 1.0/(1.0+np.exp(-WX)) produces memory overflow.
 
 ## Concrete Example: Learning the XOR Function
 
@@ -187,11 +188,11 @@ Finally, we assign the new values of the weights and have completed an iteration
 
 A simple neural network shows us.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif){:height="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif){:height="800px"}
 
 Adding more neurons to the network increases its complexity to learn non-linear decision boundaries.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif){:height="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif){:height="800px"}
 
 
 
