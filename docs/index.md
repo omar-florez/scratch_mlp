@@ -7,7 +7,9 @@ description: Tutorial on back-propagation
 
 >A **neural network** is a clever arrangement of linear and non-linear modules. When we choose and connect them wisely,
 we have a powerful tool to approximate any mathematical function. For example one that **separates classes with a non-linear
-decision boundary**. A topic that is not always explained in depth, despite of its intuitive and modular nature, is the
+decision boundary**.
+
+A topic that is not always explained in depth, despite of its intuitive and modular nature, is the
 **backpropagation technique** responsible for updating trainable parameters. Let’s explore this algorithm to see the internal
 functioning of a neural network using **LEGO pieces as a modular analogy**, one brick at a time.
 
@@ -21,7 +23,7 @@ The reader may find interesting that a neural network is a stack of modules with
 - **Input X** feeds a neural network with raw data, which is stored in a matrix in which observations are rows and dimensions are columns
 - **Weights W1** maps input X to the first hidden layer. Weights W1 works then as a linear kernel
 - A **Sigmoid function** prevents numbers from falling out of range by scaling them to 0-1. The result is an **array of
-neural activations in the first hidden layer h1**
+neural activations** in the first hidden layer h1
 
 At this point these operations only compute a **general linear system** and don’t have the capacity to model non-linear interactions.
 This changes when we stack one more layer, adding depth to this modular structure. The deeper the network, the more subtle non-linear
