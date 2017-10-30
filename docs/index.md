@@ -197,10 +197,14 @@ The loss function, in the right plot, nicely gets lower over consecutive iterati
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif){:height="800px"}
 
-Having now **50 neurons** in the hidden layer notably increases the power of the model to learn **complex decision boundaries**.
-This not only produces more accurate results, but can produce **exploiting gradients** with values too large to be stored
-in a floating numerical variable or when model overfits the training dataset (step 90). Exploiding and vanishing gradients are interesting phenomenons that we will devote an
-entire analysis later.
+Having now **50 neurons** in the hidden layer notably increases model's power to learn **complex decision boundaries**.
+This coud not only produce more accurate results, but also **exploiting gradients** too large that cannot be stored
+in a floating numerical variable (steps > 90). When large gradients multiply weights during backpropagation, they
+generated quite large new weight values. This is why the **Loss value suddenly increases** during the last steps of the
+training as the **regularization component** of the Loss function compute the **squared weight values**.
+This could be avoid by having a policy to reduce the learning rate over time. Or having a stronger regularization, maybe
+L1 instead of L2. **Exploiding** and **vanishing gradients** are interesting phenomenons that we will devote an entire
+analysis later.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif){:height="800px"}
 
