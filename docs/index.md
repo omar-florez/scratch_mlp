@@ -207,11 +207,9 @@ In other words, the **regularization component** of the Loss function computes t
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif){:height="800px"}
 
-This problem can be avoided by reducing the learning rate as you can see below. Or by implementing a policy to reduce it as we iterate.
-Or having a stronger regularization, maybe L1 instead of L2. **Exploiding** and **vanishing gradients** are interesting
+This problem can be avoided by **reducing the learning rate** as you can see below. Or by implementing a policy to reduce it as we iterate.
+Or by having a stronger regularization, maybe L1 instead of L2. **Exploiding** and **vanishing gradients** are interesting
 phenomenons and we will devote an entire analysis later.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.000001.gif){:height="800px"}
-
-
 

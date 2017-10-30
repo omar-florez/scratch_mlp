@@ -1,3 +1,9 @@
+---
+layout: page
+title: One LEGO at a time&#58; Explaining the Math of How Neural Networks Learn
+tagline:
+description: Tutorial on back-propagation
+---
 
 >A **neural network** is a clever arrangement of linear and non-linear modules. When we choose and connect them wisely,
 we have a powerful tool to approximate any mathematical function. For example one that **separates classes with a non-linear
@@ -78,7 +84,7 @@ given a batch of labeled observations. This algorithm has been repeatedly redisc
 
 >Let's **initialize the network weights** with random numbers.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/initialized_network.png "Logo Title Text 1"){:width="1300px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/initialized_network.png "Logo Title Text 1")
 
 ### Forward Step:
 
@@ -89,24 +95,24 @@ This is how it happens:
 - Linearly map input data X using weights W1 as a kernel:
 
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png)
 
 - Scale this weighted sum z1 with a Sigmoid function to get values of the first hidden layer h1. **Note that the original
 2D vector is now mapped to a 3D space**.
 
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png){:width="400px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png)
 
 - A similar process takes place for the second layer h2. Let's compute first the **weighted sum** z2 of the
 first hidden layer, which is now input data.
 
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z2.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z2.png)
 
 - And then compute their Sigmoid activation function. This vector [0.37166596 0.45414264] represents the **log probability**
 or **predicted vector** computed by the network given input X.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png){:width="300px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png)
 
 ### Computing the Total Loss
 
@@ -116,7 +122,7 @@ or **predicted vector** computed by the network given input X.
 Note that the Loss function contains a **regularization component** that penalizes large weight values as in a Ridge
 regression. In other words, large squared weights values will increase the Loss function, **an error metric we indeed want to minimize**.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/loss.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/loss.png)
 
 ### Backward step:
 >The goal of this step is to **update the weights of the neural network** in a direction that minimizes its Loss function.
@@ -132,7 +138,7 @@ in detail each one.
 
 The chain rule says that we can decompose the computation of gradients of a neural network into **differentiable pieces**:
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2.png)
 
 As a memory helper, these are the **function definitions** used above and their **first derivatives**:
 
@@ -147,40 +153,40 @@ As a memory helper, these are the **function definitions** used above and their 
 More visually, we aim to update the weights W2 (in blue) in the below figure. In order to that, we need to compute
 three **partial derivatives along the chain**.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/update_w2.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/update_w2.png)
 
 Plugging in values into these partial derivatives allow us to compute gradients with respect to weights W2 as follows.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_detailed.png){:width="600px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_detailed.png)
 
 The result is a 3x2 matrix dLoss/dW2, which will update the original W2 values in a direction that minimizes the Loss function.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers.png){:width="700px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers.png)
 
 #### dLoss/dW2:
 
 Computing the **chain rule** for updating the weights of the first hidden layer W1 exhibits the possibility of **reusing existing
 computations**.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1.png)
 
 More visually, the **path from the output layer to the weights W1** touches partial derivatives already computed in **latter
 layers**.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/update_w1.png){:width="500px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/update_w1.png)
 
 For example, partial derivatives dLoss/dh2 and dh2/dz2 have been already computed as a dependency for learning weights
 of the output layer dLoss/dW2 in the previous section.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1_numbers.png){:width="700px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1_numbers.png)
 
 Placing all derivatives together, we can execute the **chain rule** again to update the weights of the hidden layer W1:
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1_numbers_final.png){:width="700px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w1_numbers_final.png)
 
 Finally, we assign the new values of the weights and have completed an iteration on the training of network.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/copy_values.png){:width="100px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/copy_values.png)
 
 ### Let's Run This!
 
@@ -191,7 +197,7 @@ See below how a neural network with **3 neurons** in the hidden layer has small 
 with a **simple decision boundary** that starts being a straight line but then shows a non-linear behavior.
 The loss function, in the right plot, nicely gets lower over consecutive iterations.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif){:height="800px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif)
 
 Having  **50 neurons** in the hidden layer notably increases model's power to learn more **complex decision boundaries**.
 This could not only produce more accurate results, but also **exploiting gradients**, a notable problem when training neural networks.
@@ -199,11 +205,11 @@ This happens when very large gradients multiply weights during backpropagation a
 This is why the **Loss value suddenly increases** during the last steps of the training (step > 90).
 In other words, the **regularization component** of the Loss function computes the **squared values** of weights that are already very large (sum(W^2)/2N).
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif){:height="800px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif)
 
-This problem can be avoided by reducing the learning rate as you can see below. Or by implementing a policy to reduce it as we iterate.
-Or having a stronger regularization, maybe L1 instead of L2. **Exploiding** and **vanishing gradients** are interesting
+This problem can be avoided by **reducing the learning rate** as you can see below. Or by implementing a policy to reduce it as we iterate.
+Or by having a stronger regularization, maybe L1 instead of L2. **Exploiding** and **vanishing gradients** are interesting
 phenomenons and we will devote an entire analysis later.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.000001.gif){:height="800px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.000001.gif)
 
