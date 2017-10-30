@@ -11,8 +11,9 @@ decision boundary**.
 
 A topic that is not always explained in depth, despite of its intuitive and modular nature, is the
 **backpropagation technique** responsible for updating trainable parameters. Let’s build a neural network from scratch
-to see the internal functioning of a neural network using **LEGO pieces as a modular analogy**, one brick at a time. The
-code can be found in this repository: https://github.com/omar-florez/scratch_mlp
+to see the internal functioning of a neural network using **LEGO pieces as a modular analogy**, one brick at a time.
+
+Code implementing this can be found in this repository: https://github.com/omar-florez/scratch_mlp
 
 ## Neural Networks as a Composition of Pieces
 
@@ -187,27 +188,30 @@ Finally, we assign the new values of the weights and have completed an iteration
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/copy_values.png){:width="100px"}
 
-### Model is Alive
+### Let's Run This!
 
 See below **two neural networks** trained to approximate the **XOR function** over many iterations. **Left plot:** Accuracy.
-**Central plot:** Model prediction. **Right plot:** Loss function.
+**Central plot:** Learned decision boundary. **Right plot:** Loss function.
 
-A simple neural network with **3 neurons** in the hidden layer has small capacity. The model learns to separate 2 classes
-with a **simple decision boundary** that starts being a straight line but then has a non-linear shape.
+See below how a neural network with **3 neurons** in the hidden layer has small capacity. This model learns to separate 2 classes
+with a **simple decision boundary** that starts being a straight line but then shows a non-linear behavior.
 The loss function, in the right plot, nicely gets lower over consecutive iterations.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif){:height="800px"}
 
-Having  **50 neurons** in the hidden layer notably increases model's power to learn **complex decision boundaries**.
-This coud not only produce more accurate results, but also **exploiting gradients** too large that cannot be stored
-as a floating numerical variable (steps > 90). When large gradients multiply weights during backpropagation, they
-generated quite large updated weights. This is why the **Loss value suddenly increases** during the last steps of the
-training as the **regularization component** of the Loss function computes the **squared weight values** (sum(W^2)/2N).
-This could be avoid by having a policy that reduces the learning rate over time. Or having a stronger regularization, maybe
-L1 instead of L2. **Exploiding** and **vanishing gradients** are interesting phenomenons and we will devote an entire
-analysis later.
+Having  **50 neurons** in the hidden layer notably increases model's power to learn more **complex decision boundaries**.
+This could only produce more accurate results, but also **exploiting gradients** (steps > 90). When large gradients multiply
+weights during backpropagation, they also compute large updated weights. This is why the **Loss value suddenly increases**
+during the last steps of the training. In other words the **regularization component** of the Loss function computes
+the **squared values** of weights that are already very large (sum(W^2)/2N).
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif){:height="800px"}
+
+This can be avoided by reducing the learning rate as you can see below. Or by implementing a policy to reduce it as we iterate.
+Or having a stronger regularization, maybe L1 instead of L2. **Exploiding** and **vanishing gradients** are interesting
+phenomenons and we will devote an entire analysis later.
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.000001.gif){:height="800px"}
 
 
 

@@ -78,7 +78,7 @@ def run():
 
         #---------------------------------------------------------------------------------------------------------------
         # Definition of Loss function: mean squared error plus Ridge regularization
-        L = np.square(y[index]-h2).sum()/(2*N) + reg_coeff*(np.square(w2).sum()+np.square(w2).sum())/(2*N)
+        L = np.square(y[index]-h2).sum()/(2*N) + reg_coeff*(np.square(w1).sum()+np.square(w2).sum())/(2*N)
 
         losses.append([i,L])
 
