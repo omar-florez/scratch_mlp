@@ -11,18 +11,23 @@ decision boundary**. A topic that is not always explained in depth, despite of i
 **backpropagation technique** responsible for updating trainable parameters. Let’s explore this algorithm to see the internal
 functioning of a neural network using **LEGO pieces as a modular analogy**, one brick at a time.
 
-Why should I read this? **Because debugging machine learning models is a complex task**. In my experience, mathematical models do not
+## Why should I read this?
+
+**Because debugging machine learning models is a complex task**. In my experience, mathematical models do not
  often work as expected on first try. They may give low accuracy for new data, spending long training times or too much memory,
  showing a large number of false negatives, returning NaN predictions, etc. But if you understand
- the internal parts of the algorithm, you will quickly know **what to change first and define an strategy** to test invariants
- and expected behaviors that you know are part the algorithm:
- - If it takes so much time to train, it is maybe be a good idea to increase the size of a minibatch to reduce the variance
+ the internal parts of the algorithm, you will quickly know **what to change first** and define an strategy to **test invariants
+ and expected behaviors** that you know are part the algorithm. Let me show some cases:
+
+ - If it **takes so much time to train**, it is maybe be a good idea to increase the size of a minibatch to reduce the variance
  in the examples and thus to help the algorithm to converge
- - NaN predictions often indicate that the algorithm received small gradients the negative
+ - **NaN predictions** often indicate that the algorithm received small gradients the negative
  exponential of the Sigmoid activation 1.0/(1.0+np.exp(-WX)) produces memory overflow.
 
 This will also be helpful when you want to **create new capabilities that are not currently implemented in the ML
 library** you are using.
+
+## Neural Networks as a Composition of Pieces
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/overview.png "Logo Title Text 1")
 
