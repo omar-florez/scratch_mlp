@@ -401,26 +401,28 @@ Finally, we assign the new values of the weights and have completed an iteration
 
 ### Let's Run This!
 
-See below **two neural networks** trained to approximate the **XOR function** over many iterations. **Left plot:** Accuracy.
-**Central plot:** Learned decision boundary. **Right plot:** Loss function.
+See below **some neural networks** trained to approximate the **XOR function** over many iterations.
 
-See below how a neural network with **3 neurons** in the hidden layer has small capacity. This model learns to separate 2 classes
+**Left plot:** Accuracy. **Central plot:** Learned decision boundary. **Right plot:** Loss function.
+
+First let's see how a neural network with **3 neurons** in the hidden layer has small capacity. This model learns to separate 2 classes
 with a **simple decision boundary** that starts being a straight line but then shows a non-linear behavior.
-The loss function, in the right plot, nicely gets lower over consecutive iterations.
+The loss function in the right plot nicely gets low as training continues.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif){:height="800px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif)
 
 Having  **50 neurons** in the hidden layer notably increases model's power to learn more **complex decision boundaries**.
 This could not only produce more accurate results, but also **exploiting gradients**, a notable problem when training neural networks.
-This happens when very large gradients multiply weights during backpropagation and thus generate large updated weights as well.
-This is why the **Loss value suddenly increases** during the last steps of the training (step > 90).
-In other words, the **regularization component** of the Loss function computes the **squared values** of weights that are already very large (sum(W^2)/2N).
+This happens when very large gradients multiply weights during backpropagation and thus generate large updated weights.
+This is reason why the **Loss value suddenly increases** during the last steps of the training (step > 90).
+The **regularization component** of the Loss function computes the **squared values** of weights that are already very large (sum(W^2)/2N).
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif){:height="800px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif)
 
-This problem can be avoided by **reducing the learning rate** as you can see below. Or by implementing a policy to reduce it as we iterate.
-Or by having a stronger regularization, maybe L1 instead of L2. **Exploiding** and **vanishing gradients** are interesting
-phenomenons and we will devote an entire analysis later.
+This problem can be avoided by **reducing the learning rate** as you can see below. Or by implementing a policy that reduces
+the learning rate over time. Or by enforcing a stronger regularization, maybe L1 instead of L2.
+**Exploiding** and **vanishing gradients** are interesting phenomenons and we will devote an entire analysis later.
 
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.000001.gif){:height="800px"}
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.000001.gif)
+
 
