@@ -10,8 +10,9 @@ we have a powerful tool to approximate any mathematical function. For example on
 decision boundary**.
 
 A topic that is not always explained in depth, despite of its intuitive and modular nature, is the
-**backpropagation technique** responsible for updating trainable parameters. Let’s explore this algorithm to see the internal
-functioning of a neural network using **LEGO pieces as a modular analogy**, one brick at a time.
+**backpropagation technique** responsible for updating trainable parameters. Let’s build a neural network from scratch
+to see the internal functioning of a neural network using **LEGO pieces as a modular analogy**, one brick at a time. The
+code can be found in this repository: https://github.com/omar-florez/scratch_mlp
 
 ## Neural Networks as a Composition of Pieces
 
