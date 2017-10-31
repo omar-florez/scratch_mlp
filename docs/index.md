@@ -46,7 +46,7 @@ be helpful when you want to **create new capabilities that are not currently imp
  in the observations and thus to help the algorithm to converge
  - If you observe **NaN predictions**, the algorithm may have received large gradients producing memory overflow. Think of
  this as consecutive matrix multiplications that exploit after many iterations. Decreasing the learning rate will have the
- effect of scale down these values. Reducing the number of layers will decrease the number of multiplications. And clipping
+ effect of scaling down these values. Reducing the number of layers will decrease the number of multiplications. And clipping
  gradients will control this problem explicitly
 
 ## Concrete Example: Learning the XOR Function
