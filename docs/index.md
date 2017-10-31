@@ -13,7 +13,7 @@ A topic that is not always explained in depth, despite of its intuitive and modu
 **backpropagation technique** responsible for updating trainable parameters. Let’s build a neural network from scratch
 to see the internal functioning of a neural network using **LEGO pieces as a modular analogy**, one brick at a time.
 
-Code implementing this can be found in this repository: [https://github.com/omar-florez/scratch_mlp|https://github.com/omar-florez/scratch_mlp]
+Code implementing this can be found in this repository: [https://github.com/omar-florez/scratch_mlp](https://github.com/omar-florez/scratch_mlp)
 
 ## Neural Networks as a Composition of Pieces
 
