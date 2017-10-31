@@ -163,7 +163,7 @@ The result is a 3x2 matrix dLoss/dW2, which will update the original W2 values i
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/chain_w2_numbers.png){:width="700px"}
 
-#### dLoss/dW2:
+#### dLoss/dW1:
 
 Computing the **chain rule** for updating the weights of the first hidden layer W1 exhibits the possibility of **reusing existing
 computations**.
