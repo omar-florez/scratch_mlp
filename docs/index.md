@@ -214,4 +214,12 @@ the learning rate over time. Or by enforcing a stronger regularization, maybe L1
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.000001.gif)
 
+### Implementation
+
+Let's translate the above mathematical equations to code using only [Numpy](http://www.numpy.org/) as our Math engine. Neural networks are trained in a loop in which each iteration
+present already calibrated input data to the network. In this small example, let's just consider the entire dataset in each iteration.
+The computations of Forward step, Loss, and Backward are repeated and lead to good generalization or accurate inference since
+we update the weights with the corresponding gradients in every cycle.
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/code.png)
 
