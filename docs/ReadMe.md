@@ -182,6 +182,17 @@ Finally, we assign the new values of the weights and have completed an iteration
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/copy_values.png){:width="150px"}
 
+### Implementation
+
+Let's translate the above mathematical equations to code only using [Numpy](http://www.numpy.org/) as our **linear algebra engine**.
+Neural networks are trained in a loop in which each iteration present already **calibrated input data** to the network.
+In this small example, let's just consider the entire dataset in each iteration. The computations of **Forward step**,
+**Loss**, and **Backwards step** lead to good generalization since we update the **trainable parameters** (matrices w1 and
+w2 in the code) with their corresponding **gradients** (matrices dL_dw1 and dL_dw2) in every cycle.
+Code is stored in this repository: [https://github.com/omar-florez/scratch_mlp](https://github.com/omar-florez/scratch_mlp)
+
+![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/code.png)
+
 ### Let's Run This!
 
 See below **some neural networks** trained to approximate the **XOR function** over many iterations.
@@ -208,13 +219,3 @@ the learning rate over time. Or by enforcing a stronger regularization, maybe L1
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.000001.gif)
 
-### Implementation
-
-Let's translate the above mathematical equations to code using only [Numpy](http://www.numpy.org/) as our **linear algebra engine**.
-Neural networks are trained in a loop in which each iteration present already **calibrated input data** to the network.
-In this small example, let's just consider the entire dataset in each iteration. The computations of **Forward step**,
-**Loss**, and **Backwards step** lead to good generalization since we update the trainable parameters with their
-corresponding **gradients** in every cycle.
-Code is stored in this repository: [https://github.com/omar-florez/scratch_mlp](https://github.com/omar-florez/scratch_mlp)
-
-![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/code.png)
