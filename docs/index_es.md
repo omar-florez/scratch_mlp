@@ -21,19 +21,19 @@ El lector puede encontrar interesante que una red neuronal es una pila de módul
 
 - **Entrada X** alimenta la red neuronal con datos sin procesar, la cual se almacena en una matriz en la cual las observaciones con filas y las dimensiones son columnas
 - **Pesos W1** proyectan entrada X a la primera capa escondida  h1. Pesos W1 trabajan entonces como un kernel lineal
-- Una **función Sigmoid ** que previene los números de la capa escondida de salir del rango 0-1. El resultado es un **array activaciones neuronales** h1 = Sigmoid(WX)
+- Una **función Sigmoid** que previene los números de la capa escondida de salir del rango 0-1. El resultado es un **array activaciones neuronales** h1 = Sigmoid(WX)
 
-Hasta este punto estas operaciones solo calculan  un **sistema general lineal **, el cual no tiene la capacidad de modelar interacciones no lineales.
+Hasta este punto estas operaciones solo calculan  un **sistema general lineal**, el cual no tiene la capacidad de modelar interacciones no lineales.
 Esto cambia cuando ponemos otro elemento en el pila, añadiendo profundidad a la estructura modular. Mientras más profunda sea la red, más interacciones no-lineales podremos aprender y problemas mas complejos podremos resolver, lo cual puede explicar en parte la popularidad de redes neuronales.
 
 ## Porque debería leer esto?
 
->Si uno entiende las partes internas de una red neuronal, es mas fácil saber **que cambiar primero** cuando el algoritmo no funcione como es esperado y permite definir una estrategia para **probar invariantes ** and **comportamientos esperados** que uno saben son parte del algoritmo. Esto también es útil cuando el lector quiere **crear nuevos algoritmos que actualmente no están implementados en la librería de Machine Learning de preferencia **.
+>Si uno entiende las partes internas de una red neuronal, es mas fácil saber **que cambiar primero** cuando el algoritmo no funcione como es esperado y permite definir una estrategia para **probar invariantes** and **comportamientos esperados** que uno saben son parte del algoritmo. Esto también es útil cuando el lector quiere **crear nuevos algoritmos que actualmente no están implementados en la librería de Machine Learning de preferencia**.
 
 **Porque hacer debugging de modelos de aprendizaje de maquina es una tarea compleja**. Por experiencia,  modelos matemáticos no funcionan como son esperados al primer intento. A veces estos pueden darte una exactitud baja para datos nuevos, tomar mucho tiempo de entrenamiento o mucha memoria RAM, devolver una gran cantidad de falsos negativos o valores NaN (Not a Number), etc. Déjame mostrarte algunos casos donde saber como el algoritmo funciona puede ser útil:
 
  - Si **toma mucho tiempo para entrenar**, es quizás una buena idea incrementar el tamaño del mini-batch o array de observaciones que alimentan a la red neuronal para reducir la varianza en las observaciones y así ayudar al algoritmo a converger
- - Si se observa **valores NaN **, el algoritmo ha recibido gradientes con valores muy altos produciendo desborde de memoria RAM. Piensa esto como una secuencia de multiplicaciones de matrices que explotan después de varias iteraciones. Reducir la velocidad de aprendizaje tendrá el efecto de escalar estos valores. Reduciendo el numero de capas reducirá el numero de multiplicaciones. Y poniendo una cota superior a los gradientes (clipping gradients) controlara este problema explícitamente
+ - Si se observa **valores NaN**, el algoritmo ha recibido gradientes con valores muy altos produciendo desborde de memoria RAM. Piensa esto como una secuencia de multiplicaciones de matrices que explotan después de varias iteraciones. Reducir la velocidad de aprendizaje tendrá el efecto de escalar estos valores. Reduciendo el numero de capas reducirá el numero de multiplicaciones. Y poniendo una cota superior a los gradientes (clipping gradients) controlara este problema explícitamente
 
 ## Un Ejemplo Concreto: Aprendiendo la Función XOR
 
@@ -57,7 +57,7 @@ Mas visualmente:
 
 Entrenemos ahora el modelo. En nuestro ejemplo los valores entrenables son los pesos, pero tenga en cuenta que la investigación actual esta explorando nuevos tipos de parámetros a ser optimizados. Por ejemplo, atajos entre capas, distribuciones estables en las capas, topologías, velocidades de aprendizaje, etc.
 
-**Backpropagation** es un método para actualizar los pesos en la dirección (**gradiente**) que minimiza una métrica de error predefinida conocida como  **función Loss **
+**Backpropagation** es un método para actualizar los pesos en la dirección (**gradiente**) que minimiza una métrica de error predefinida conocida como  **función Loss**
 dado un conjunto de observaciones etiquetadas. Este algoritmo ha sido repetidamente redescubierto y  es un caso especial de una técnica mas general llamada [diferenciación automática](https://en.wikipedia.org/wiki/Automatic_differentiation) en modo acumulativo reverso.
 
 ### Inicialización de la Red
@@ -76,7 +76,7 @@ Es así como sucede:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z1.png){:width="500px"}
 
-- Se escala esta suma z1 con una función Sigmoid para obtener valores de la primera capa escondida. **Note que el vector original de 2D ha sido proyectado ahora a 3D **.
+- Se escala esta suma z1 con una función Sigmoid para obtener valores de la primera capa escondida. **Note que el vector original de 2D ha sido proyectado ahora a 3D**.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h1.png){:width="400px"}
 
@@ -84,14 +84,14 @@ Es así como sucede:
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/z2.png){:width="500px"}
 
-- Y luego calculemos su activación Sigmoid. Este vector [0.37166596 0.45414264] representa el **logaritmo de la probabilidad **
-o **vector predecido ** calculado por la red dado los datos de entrada X.
+- Y luego calculemos su activación Sigmoid. Este vector [0.37166596 0.45414264] representa el **logaritmo de la probabilidad**
+o **vector predecido** calculado por la red dado los datos de entrada X.
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/h2.png){:width="300px"}
 
 ### Calculando el Error Total
 
->También conocido como "valor real menos predecido ", el objetivo de la función Loss es **cuantificar la distancia entre el vector predecido h2 y la etiqueta real proveída por un ser humano, y**.
+>También conocido como "valor real menos predecido", el objetivo de la función Loss es **cuantificar la distancia entre el vector predecido h2 y la etiqueta real proveída por un ser humano, y**.
 
 Note que la función Loss contiene un **componente de regularización** que penaliza valores de los pesos muy altos a manera de una regresión L2. En otras palabras, grandes valores cuadrados de los pesos incrementaran la función Loss, **una métrica de error que en realidad queremos reducir**.
 
@@ -166,7 +166,7 @@ El código es almacenado en este repositorio: [https://github.com/omar-florez/sc
 
 ### Ejecutemos Esto!
 
-Mire abajo **algunas redes neuronales** entrenadas para aproximar la **función XOR ** en múltiple iteraciones.
+Mire abajo **algunas redes neuronales** entrenadas para aproximar la **función XOR** en múltiple iteraciones.
 
 **Izquierda:** Exactitud. **Centro:** Borde de decisión aprendido. **Derecha:** Función Loss.
 
@@ -176,10 +176,10 @@ La función Loss en la derecha suavemente se reduce mientras el proceso de apren
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_3neurons_lr_0.003_reg_0.0.gif)
 
 Teniendo  **50 neuronas** en la capa escondida notablemente incremental el poder del modelo para aprender  **bordes de decisión mas complejos**.
-Esto podría no solo producir resultados mas exactos, pero también **explotar las gradientes **, un problema notable cuando se entrena redes neuronales.
+Esto podría no solo producir resultados mas exactos, pero también **explotar las gradientes**, un problema notable cuando se entrena redes neuronales.
 Esto sucede cuando gradientes muy grandes multiplican pesos durante la propagación hacia atrás y así generan pesos actualizados muy grandes.
 Esta es la razón por la que **valores de la función Loss repentinamente se incrementan** durante los últimos pasos del entrenamiento (step > 90).
-El **componente de regularicion ** de la función Loss calcula los **valores cuadrados ** de los pesos que ya tienen valores muy altos (sum(W^2)/2N).
+El **componente de regularicion** de la función Loss calcula los **valores cuadrados** de los pesos que ya tienen valores muy altos (sum(W^2)/2N).
 
 ![alt text](https://raw.githubusercontent.com/omar-florez/scratch_mlp/master/docs/assets/all_50neurons_lr_0.003_reg_0.0001.gif)
 
