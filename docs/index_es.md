@@ -37,8 +37,8 @@ Esto cambia cuando ponemos otro elemento en el pila, añadiendo profundidad a la
 
 ## Un Ejemplo Concreto: Aprendiendo la Función XOR
 
->Abramos la caja negra. Construiremos a continuación una red neuronal desde cero que aprende la **función XOR **.
-La elección de esta **función no linear ** no es por casualidad. Sin backpropagation seria difícil aprender a separar clases con una **línea recta **.
+>Abramos la caja negra. Construiremos a continuación una red neuronal desde cero que aprende la **función XOR**.
+La elección de esta **función no linear** no es por casualidad. Sin backpropagation seria difícil aprender a separar clases con una **línea recta**.
 
 Para ilustrar este importante concepto, note a continuación como una línea recta no puede separar 0s and 1s, las salidas de la función XOR. **Los problemas reales también son linealmente no separables**.
 
