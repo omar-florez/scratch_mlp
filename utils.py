@@ -7,7 +7,6 @@ import os
 import imageio
 import shutil
 
-
 def plot_xor():
     xx, yy = np.meshgrid(np.linspace(-3, 3, 50), np.linspace(-3, 3, 50))
     rng = np.random.RandomState(0)
@@ -132,7 +131,21 @@ def make_all_gif(input_folder, save_filepath):
 
 def reset_folders():
     folders = [os.path.join('./scratch_mlp/plots', f) for f in ['accuracy', 'boundary', 'loss']]
+    if not os.path.exists('./scratch_mlp/plots'):
+        os.mkdir('./scratch_mlp/plots')
     for f in folders:
         if os.path.exists(f):
             shutil.rmtree(f)
-            os.mkdir(f)
+        os.mkdir(f)
+
+if __name__ == '__main__':
+    #save_filepath = './scratch_mlp/plots/gif/boundary.gif'
+    #make_gif('./scratch_mlp/plots/boundary/', save_filepath)
+    #save_filepath = './scratch_mlp/plots/gif/loss.gif'
+    #make_gif('./scratch_mlp/plots/loss/', save_filepath)
+    #save_filepath = './scratch_mlp/plots/gif/accuracy.gif'
+    #make_gif('./scratch_mlp/plots/accuracy/', save_filepath)
+
+    input_folder = './scratch_mlp/plots/'
+    save_filepath = './scratch_mlp/plots/gif/all.gif'
+    make_all_gif(input_folder, save_filepath)
