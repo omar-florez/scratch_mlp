@@ -1,4 +1,8 @@
 
+Steps to run the code:
+- git clone https://github.com/omar-florez/scratch_mlp/
+- python scratch_mlp/scratch_mlp.py
+
 >A **neural network** is a clever arrangement of linear and non-linear modules. When we choose and connect them wisely,
 we have a powerful tool to approximate any mathematical function. For example one that **separates classes with a non-linear
 decision boundary**.
